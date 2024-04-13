@@ -1,15 +1,11 @@
+using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class BloodEmitter : IOrganComponentResourceEmmiter, IOrganComponentConnectNotify, IOrganComponentConnect, IOrganComponentUpdate
+public class BloodEmitter : IOrganComponentResourceEmmiter, IOrganComponentConnectNotify, IOrganComponentConnect
 {
-    public OrganResources ResourceType { get; } = OrganResources.Blood;
+    public OrganResources ResourceType => OrganResources.Blood;
 
-    private Dictionary<IOrganComponentResourceReceiver, Transport.Connection> _connectedOrganReciver = new();
-
-
-    [SerializeField] private float _emitRate = 2f;
-    private float _emitTimer = 0f;
+    private Dictionary<BloodReciver, Transport.Connection> _connectedOrganReciver = new();
 
     public void EmitResource()
     {
@@ -25,10 +21,9 @@ public class BloodEmitter : IOrganComponentResourceEmmiter, IOrganComponentConne
 
     public void OnConnect(Organ parent, Organ target)
     {
-        if (target.GetOrganComponent<IOrganComponentResourceReceiver>() != null)
+        if (target.GetOrganComponent<BloodReciver>() != null)
         {
-            if (target.GetOrganComponent<IOrganComponentResourceReceiver>().ResourceType != ResourceType) return;
-            _connectedOrganReciver.Add(target.GetOrganComponent<IOrganComponentResourceReceiver>(), parent.GetTransport().MakeConnection(parent, target));
+            _connectedOrganReciver.Add(target.GetOrganComponent<BloodReciver>(), parent.GetTransport().MakeConnection(parent, target));
         }
     }
 
@@ -37,19 +32,8 @@ public class BloodEmitter : IOrganComponentResourceEmmiter, IOrganComponentConne
         if (target.GetOrganComponent<IOrganComponentResourceReceiver>() != null)
         {
             if (target.GetOrganComponent<IOrganComponentResourceReceiver>().ResourceType != ResourceType) return;
-            _connectedOrganReciver.Remove(target.GetOrganComponent<IOrganComponentResourceReceiver>());
+            _connectedOrganReciver.Remove(target.GetOrganComponent<BloodReciver>());
             parent.GetTransport().RemoveConnection(target);
-            _connectedOrganReciver.Remove(target.GetOrganComponent<IOrganComponentResourceReceiver>());
-        }
-    }
-
-    public void Update()
-    {
-        _emitTimer += Time.deltaTime;
-        if (_emitTimer >= _emitRate)
-        {
-            EmitResource();
-            _emitTimer = 0f;
         }
     }
 }
