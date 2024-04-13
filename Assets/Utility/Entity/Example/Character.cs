@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class Character : Entity<IEntityComponent>
 {
@@ -41,6 +42,14 @@ public class Character : Entity<IEntityComponent>
         if (component is IEntityComponentUpdate updateComp)
             _updateComponents.Add(updateComp);
         return result;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Part"))
+        {
+            this.GetHealth().HealthPoints--;
+        }
     }
 }
 
