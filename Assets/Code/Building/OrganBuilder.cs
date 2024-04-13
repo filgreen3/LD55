@@ -70,6 +70,7 @@ public class OrganBuilder : MonoBehaviour, ISystem
     {
         GameControl.Instance.Control.Press1.started += ctx => Point();
         GameControl.Instance.Control.Press1.canceled += ctx => Release();
+        GameControl.Instance.Control.Rotate.performed += ctx => Rotate();
         _contactFilter.useTriggers = true;
         _instance = this;
     }
@@ -78,6 +79,7 @@ public class OrganBuilder : MonoBehaviour, ISystem
     {
         GameControl.Instance.Control.Press1.started -= ctx => Point();
         GameControl.Instance.Control.Press1.canceled -= ctx => Release();
+        GameControl.Instance.Control.Rotate.performed -= ctx => Rotate();
     }
 
     private void Point()
@@ -86,6 +88,19 @@ public class OrganBuilder : MonoBehaviour, ISystem
         if (obj && obj.TryGetComponent<Organ>(out var part))
         {
             CurrentOrgan = part;
+        }
+    }
+
+    private void Rotate()
+    {
+        if (CurrentOrgan == null) return;
+        if (CurrentOrgan.HasEntityComponent(typeof(OrganComponentRotation)))
+        {
+            if (CurrentOrgan.HasEntityComponent(typeof(OrganComponentRotationAxisZ)))
+            {
+                _additionalRotation += 90;
+            }
+            CurrentOrgan.GetEntityComponent<OrganComponentRotation>().Rotate(CurrentOrgan);
         }
     }
 
@@ -115,11 +130,6 @@ public class OrganBuilder : MonoBehaviour, ISystem
         }
         CurrentOrgan.Position = (Vector3)GetMousePosition() + Vector3.forward * 10;
 
-        if (GameControl.Instance.Player.Use.IsPressed())
-        {
-            _additionalRotation += 90;
-            CurrentOrgan.Rotation += 90;
-        }
 
         for (int i = 0; i < CurrentOrgan.AttachPoints.Length; i++)
         {

@@ -54,15 +54,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: _componentsList.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: _componentsList.Array.data[2]
       value: 1929229795126673411
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
+      propertyPath: _componentsList.Array.data[3]
+      value: 1929229795126673421
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: managedReferences[1929229795126673411]
       value: Assembly-CSharp OrganTireComponent
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
+      propertyPath: managedReferences[1929229795126673421]
+      value: Assembly-CSharp BasicInfo
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: managedReferences[1929229795126673411]._tire

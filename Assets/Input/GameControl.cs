@@ -989,6 +989,15 @@ namespace Game.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Rotate"",
+                    ""type"": ""Button"",
+                    ""id"": ""629aec36-66c5-4934-ae30-ca3ca175ac03"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1090,6 +1099,17 @@ namespace Game.Input
                     ""action"": ""MouseLook"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""00d15d61-1b2d-4a58-84a1-c9101975e5a5"",
+                    ""path"": ""<Keyboard>/#(R)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1186,6 +1206,7 @@ namespace Game.Input
             m_Control = asset.FindActionMap("Control", throwIfNotFound: true);
             m_Control_Press1 = m_Control.FindAction("Press1", throwIfNotFound: true);
             m_Control_MouseLook = m_Control.FindAction("MouseLook", throwIfNotFound: true);
+            m_Control_Rotate = m_Control.FindAction("Rotate", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -1515,12 +1536,14 @@ namespace Game.Input
         private List<IControlActions> m_ControlActionsCallbackInterfaces = new List<IControlActions>();
         private readonly InputAction m_Control_Press1;
         private readonly InputAction m_Control_MouseLook;
+        private readonly InputAction m_Control_Rotate;
         public struct ControlActions
         {
             private @GameControl m_Wrapper;
             public ControlActions(@GameControl wrapper) { m_Wrapper = wrapper; }
             public InputAction @Press1 => m_Wrapper.m_Control_Press1;
             public InputAction @MouseLook => m_Wrapper.m_Control_MouseLook;
+            public InputAction @Rotate => m_Wrapper.m_Control_Rotate;
             public InputActionMap Get() { return m_Wrapper.m_Control; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1536,6 +1559,9 @@ namespace Game.Input
                 @MouseLook.started += instance.OnMouseLook;
                 @MouseLook.performed += instance.OnMouseLook;
                 @MouseLook.canceled += instance.OnMouseLook;
+                @Rotate.started += instance.OnRotate;
+                @Rotate.performed += instance.OnRotate;
+                @Rotate.canceled += instance.OnRotate;
             }
 
             private void UnregisterCallbacks(IControlActions instance)
@@ -1546,6 +1572,9 @@ namespace Game.Input
                 @MouseLook.started -= instance.OnMouseLook;
                 @MouseLook.performed -= instance.OnMouseLook;
                 @MouseLook.canceled -= instance.OnMouseLook;
+                @Rotate.started -= instance.OnRotate;
+                @Rotate.performed -= instance.OnRotate;
+                @Rotate.canceled -= instance.OnRotate;
             }
 
             public void RemoveCallbacks(IControlActions instance)
@@ -1640,6 +1669,7 @@ namespace Game.Input
         {
             void OnPress1(InputAction.CallbackContext context);
             void OnMouseLook(InputAction.CallbackContext context);
+            void OnRotate(InputAction.CallbackContext context);
         }
     }
 }

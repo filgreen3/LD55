@@ -50,11 +50,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 638098448143874177, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: m_Name
-      value: Base_Tier_2
+      value: flip
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: _componentsList.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: _componentsList.Array.data[2]
@@ -62,19 +62,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: _componentsList.Array.data[3]
-      value: 1929229795126673420
+      value: 1929229795126673412
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
+      propertyPath: _componentsList.Array.data[4]
+      value: 1929229795126673422
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: managedReferences[1929229795126673411]
       value: Assembly-CSharp OrganTireComponent
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
-      propertyPath: managedReferences[1929229795126673420]
+      propertyPath: managedReferences[1929229795126673412]
+      value: Assembly-CSharp OrganComponentRotationFlip
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
+      propertyPath: managedReferences[1929229795126673422]
       value: Assembly-CSharp BasicInfo
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: managedReferences[1929229795126673411]._tire
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

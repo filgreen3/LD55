@@ -37,6 +37,16 @@ public class Organ : Connectable
         Joints = GetComponents<Joint2D>().ToHashSet();
     }
 
+    public T GetOrganComponent<T>() where T : IOrganComponent
+    {
+        return (T)_componentsList.FirstOrDefault(t => t is T);
+    }
+
+    public T[] GetOrganComponents<T>() where T : IOrganComponent
+    {
+        return _componentsList.Where(t => t is T).Cast<T>().ToArray();
+    }
+
     public override T AddEntityComponent<T>(T component)
     {
         var result = base.AddEntityComponent(component);
