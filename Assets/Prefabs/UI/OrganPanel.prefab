@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c0003d10c4d4543bfb04a7a0537e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tireLevel: 0
+  _tireLevel: 1
 --- !u!1 &661704527963393082
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c0003d10c4d4543bfb04a7a0537e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tireLevel: 1
+  _tireLevel: 2
 --- !u!1 &3424829256154212190
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,7 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c0003d10c4d4543bfb04a7a0537e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tireLevel: 2
+  _tireLevel: 3
 --- !u!1 &4203852452211663266
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,4 +772,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c0003d10c4d4543bfb04a7a0537e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tireLevel: 3
+  _tireLevel: 4

@@ -18,6 +18,7 @@ public class OrganDisplay : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (CurrentOrgan == null || !CurrentOrgan.GetTier().IsOpen) return;
         OrganBuilder.CallToBuild(Instantiate(CurrentOrgan, Vector3.down * 1000f, Quaternion.identity));
     }
 }

@@ -92,6 +92,7 @@ public class OrganBuilder : MonoBehaviour, ISystem
     private void Release()
     {
         if (CurrentOrgan == null) return;
+        var connected = false;
         if (CurrentOrgan.CanConnect && _overlappingCollidersCount <= 0)
         {
             var list = new List<Organ>();
@@ -99,8 +100,10 @@ public class OrganBuilder : MonoBehaviour, ISystem
             {
                 if (_targetParts[i] == null || _targetParts[i].CanConnect) continue;
                 CurrentOrgan.Connect(_targetParts[i]);
+                connected = true;
             }
         }
+        if (!connected) Destroy(CurrentOrgan.gameObject);
         CurrentOrgan = null;
     }
 
