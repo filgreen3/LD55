@@ -109,7 +109,7 @@ public class Organ : Connectable
     }
 }
 
-public static class PartExtensions
+public static class OrganExtensions
 {
     public static OrganRender GetRender(this Organ part) => part.GetEntityComponent<OrganRender>();
 }
