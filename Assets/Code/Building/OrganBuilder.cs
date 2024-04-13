@@ -1,6 +1,7 @@
 using UnityEngine;
 using Game.Input;
 using System.Collections.Generic;
+using System;
 
 public class OrganBuilder : MonoBehaviour, ISystem
 {
@@ -8,6 +9,8 @@ public class OrganBuilder : MonoBehaviour, ISystem
 
     [SerializeField] private LineRenderer _line;
     private static OrganBuilder _instance;
+
+
 
 
     public Organ CurrentOrgan
@@ -29,6 +32,7 @@ public class OrganBuilder : MonoBehaviour, ISystem
                 _currentOrgan.Rig.gravityScale = 1;
                 _currentOrgan.GetRender().Color = Color.white;
                 _currentOrgan.gameObject.layer = LayerMask.NameToLayer("Part");
+                OnEndBuildingOrgan?.Invoke(_currentOrgan);
             }
             _currentOrgan = value;
             if (_currentOrgan != null)
@@ -44,6 +48,7 @@ public class OrganBuilder : MonoBehaviour, ISystem
                 _currentOrgan.gameObject.layer = LayerMask.NameToLayer("CurrentPart");
                 _line.enabled = _currentOrgan.CanConnect;
                 _targetParts = new Organ[_currentOrgan.AttachPoints.Length];
+                OnStartBuildingOrgan?.Invoke(_currentOrgan);
             }
             else
             {
@@ -60,6 +65,10 @@ public class OrganBuilder : MonoBehaviour, ISystem
     private int _overlappingCollidersCount;
     private float _additionalRotation = 0;
 
+    public static Action<Organ> OnStartBuildingOrgan;
+    public static Action<Organ> OnEndBuildingOrgan;
+    public static List<Organ> ConnectedOrgans = new();
+
 
     public static void CallToBuild(Organ organ)
     {
@@ -68,11 +77,13 @@ public class OrganBuilder : MonoBehaviour, ISystem
 
     private void Awake()
     {
+        ConnectedOrgans.Clear();
         GameControl.Instance.Control.Press1.started += ctx => Point();
         GameControl.Instance.Control.Press1.canceled += ctx => Release();
         GameControl.Instance.Control.Rotate.performed += ctx => Rotate();
         _contactFilter.useTriggers = true;
         _instance = this;
+
     }
 
     private void OnDisable()
@@ -115,6 +126,7 @@ public class OrganBuilder : MonoBehaviour, ISystem
             {
                 if (_targetParts[i] == null || _targetParts[i].CanConnect) continue;
                 CurrentOrgan.Connect(_targetParts[i]);
+                ConnectedOrgans.Add(CurrentOrgan);
                 connected = true;
             }
         }

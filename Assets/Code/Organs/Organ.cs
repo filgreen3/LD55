@@ -112,6 +112,16 @@ public class Organ : Connectable
 
         }
     }
+
+    public bool HasOrganComponent<T>()
+    {
+        foreach (var comp in Components)
+        {
+            if (comp is T)
+                return true;
+        }
+        return false;
+    }
 }
 
 public static class OrganExtensions
