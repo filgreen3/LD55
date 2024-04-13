@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5771945001452381087}
   - component: {fileID: 7705128092727194904}
   - component: {fileID: 4860111019266863890}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: SimplePart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 48212812, guid: 01b171b112afd4c20b95d8add0671378, type: 3}
+  m_Sprite: {fileID: -1425436651, guid: 8191cda6915f14e76905d3238e4ab663, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -159,7 +159,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.125, y: 0.125, z: 0.125, w: 0.125}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
@@ -185,7 +185,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
