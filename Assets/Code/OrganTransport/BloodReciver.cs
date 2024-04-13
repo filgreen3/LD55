@@ -18,5 +18,6 @@ public class BloodReciver : IOrganComponentResourceReceiver, IOrganComponentReso
         ResourcesCout++;
         OnReciveResource?.Invoke(this);
     }
+    
 
 }

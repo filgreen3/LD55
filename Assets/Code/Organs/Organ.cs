@@ -37,16 +37,6 @@ public class Organ : Connectable
         Joints = GetComponents<Joint2D>().ToHashSet();
     }
 
-    public T GetOrganComponent<T>() where T : IOrganComponent
-    {
-        return (T)_componentsList.FirstOrDefault(t => t is T);
-    }
-
-    public T[] GetOrganComponents<T>() where T : IOrganComponent
-    {
-        return _componentsList.Where(t => t is T).Cast<T>().ToArray();
-    }
-
     public override T AddEntityComponent<T>(T component)
     {
         var result = base.AddEntityComponent(component);
@@ -65,6 +55,11 @@ public class Organ : Connectable
         foreach (var comp in _connectComponents)
         {
             comp.OnConnect(this, target as Organ);
+        }
+        var list = target.GetOrganComponents<IOrganComponentConnectNotify>();
+        foreach (var comp in list)
+        {
+            comp.OnConnect(target as Organ, this);
         }
     }
 

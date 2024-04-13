@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using UnityEngine;
 
-public class BloodEmitter : IOrganComponentResourceEmmiter, IOrganComponentConnect
+public class BloodEmitter : IOrganComponentResourceEmmiter, IOrganComponentConnectNotify, IOrganComponentConnect
 {
     public OrganResources ResourceType { get; } = OrganResources.Blood;
 
