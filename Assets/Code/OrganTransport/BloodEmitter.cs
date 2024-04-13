@@ -18,7 +18,9 @@ public class BloodEmitter : IOrganComponentResourceEmmiter, IOrganComponentConne
     {
         if (target.GetOrganComponent<IOrganComponentResourceReceiver>() != null)
         {
+            if (target.GetOrganComponent<IOrganComponentResourceReceiver>().ResourceType != ResourceType) return;
             _connectedOrganReciver.Add(target.GetOrganComponent<IOrganComponentResourceReceiver>());
+            parent.GetTransport().MakeConnection(parent, target);
         }
     }
 
@@ -26,7 +28,9 @@ public class BloodEmitter : IOrganComponentResourceEmmiter, IOrganComponentConne
     {
         if (target.GetOrganComponent<IOrganComponentResourceReceiver>() != null)
         {
+            if (target.GetOrganComponent<IOrganComponentResourceReceiver>().ResourceType != ResourceType) return;
             _connectedOrganReciver.Remove(target.GetOrganComponent<IOrganComponentResourceReceiver>());
+            parent.GetTransport().RemoveConnection(parent, target);
         }
     }
 }

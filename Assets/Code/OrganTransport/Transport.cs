@@ -11,6 +11,12 @@ public class Transport : IOrganComponent, IOrganComponentUpdate
         _connections.Add(new Connection(LineHelperSystem.GetLine(), self, target));
     }
 
+    public void RemoveConnection(Organ self, Organ target)
+    {
+        _connections.RemoveAll(x => x.CheckData(self, target));
+    }
+
+
     public void Update()
     {
         foreach (var connection in _connections)
@@ -27,6 +33,8 @@ public class Transport : IOrganComponent, IOrganComponentUpdate
             _self = self;
             _target = target;
         }
+
+        public bool CheckData(Organ self, Organ target) => _self == self && _target == target;
 
         private LineRenderer _line;
         private Organ _self;
