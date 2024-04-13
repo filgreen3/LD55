@@ -1,5 +1,5 @@
-using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 public class TownPopulation : ITownComponent
 {
@@ -21,6 +21,6 @@ public class TownPopulation : ITownComponent
 
     public void Generate(TownGenerator generator)
     {
-
+        PopulationLost += () => generator.OnTownLost?.Invoke();
     }
 }

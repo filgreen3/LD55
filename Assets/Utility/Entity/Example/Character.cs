@@ -47,4 +47,7 @@ public class Character : Entity<IEntityComponent>
 public static class CharacterHelper
 {
     public static CharacterData GetCharacterData(this Character character) => character.GetEntityComponent<CharacterData>();
+    public static Health GetHealth(this Character character) => character.GetEntityComponent<Health>();
+    public static ChracterAnimator GetAnimator(this Character character) => character.GetEntityComponent<ChracterAnimator>();
+
 }

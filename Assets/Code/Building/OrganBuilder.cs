@@ -8,10 +8,9 @@ public class OrganBuilder : MonoBehaviour, ISystem
     const float c_colliderDownScale = 0.65f;
 
     [SerializeField] private LineRenderer _line;
+    [SerializeField] private Transform _monsterBase;
+
     private static OrganBuilder _instance;
-
-
-
 
     public Organ CurrentOrgan
     {
@@ -49,6 +48,7 @@ public class OrganBuilder : MonoBehaviour, ISystem
                 _line.enabled = _currentOrgan.CanConnect;
                 _targetParts = new Organ[_currentOrgan.AttachPoints.Length];
                 OnStartBuildingOrgan?.Invoke(_currentOrgan);
+                _currentOrgan.transform.SetParent(_monsterBase);
             }
             else
             {

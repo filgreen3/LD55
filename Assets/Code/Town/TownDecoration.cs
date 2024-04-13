@@ -9,7 +9,7 @@ public class TownDecoration : ITownComponent
     {
         for (int i = 0; i < _count; i++)
         {
-            GameObject.Instantiate(_decorations[Random.Range(0, _decorations.Length)], generator.CenterPosition + Random.insideUnitSphere * generator.Size, Quaternion.identity, generator.transform);
+            GameObject.Instantiate(_decorations[Random.Range(0, _decorations.Length)], generator.CenterPosition + Vector3.right * Random.Range(-generator.Size, generator.Size), Quaternion.identity, generator.transform);
         }
     }
 }
