@@ -112,4 +112,5 @@ public class Organ : Connectable
 public static class OrganExtensions
 {
     public static OrganRender GetRender(this Organ part) => part.GetEntityComponent<OrganRender>();
+    public static OrganTireComponent GetTier(this Organ part) => part.GetEntityComponent<OrganTireComponent>();
 }

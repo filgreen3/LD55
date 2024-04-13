@@ -7,6 +7,8 @@ public class OrganBuilder : MonoBehaviour, ISystem
     const float c_colliderDownScale = 0.65f;
 
     [SerializeField] private LineRenderer _line;
+    private static OrganBuilder _instance;
+
 
     public Organ CurrentOrgan
     {
@@ -59,12 +61,17 @@ public class OrganBuilder : MonoBehaviour, ISystem
     private float _additionalRotation = 0;
 
 
+    public static void CallToBuild(Organ organ)
+    {
+        _instance.CurrentOrgan = organ;
+    }
+
     private void Awake()
     {
         GameControl.Instance.Control.Press1.started += ctx => Point();
         GameControl.Instance.Control.Press1.canceled += ctx => Release();
         _contactFilter.useTriggers = true;
-
+        _instance = this;
     }
 
     private void OnDisable()

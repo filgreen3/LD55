@@ -178,10 +178,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CreatePanel
       objectReference: {fileID: 0}
-    - target: {fileID: 2655392854816385489, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 55
-      objectReference: {fileID: 0}
     - target: {fileID: 3148735559165764357, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -277,10 +273,6 @@ PrefabInstance:
     - target: {fileID: 4184428252525813254, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4234480131566704379, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 4417509548972308992, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
       propertyPath: m_AnchorMax.y
@@ -362,10 +354,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5164273490566737995, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 111.600006
-      objectReference: {fileID: 0}
     - target: {fileID: 5366525875748942350, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -389,10 +377,6 @@ PrefabInstance:
     - target: {fileID: 5366525875748942350, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5465758034142457777, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 5891644824169697239, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
       propertyPath: m_AnchorMax.y
@@ -659,28 +643,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 2200680980414360388, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-    - {fileID: 5039940063347618926, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-    - {fileID: 2322919160869433784, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-    - {fileID: 1833895231240751281, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-    - {fileID: 7038909590193429040, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-    - {fileID: 26715751988445366, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-    - {fileID: 1242114263666798037, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-    - {fileID: 1285604942461674654, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-    - {fileID: 978568405997933332, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-    - {fileID: 8181351619564334372, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-    - {fileID: 3094793773493039630, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-    - {fileID: 5710343230351914968, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-    - {fileID: 8534551906672955089, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-    - {fileID: 1057403322512530512, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-    - {fileID: 8024699402781279958, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-    - {fileID: 9097126202743892917, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-    - {fileID: 7729476367099608276, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-    - {fileID: 3476647745642161150, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-    - {fileID: 6193105723952719400, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-    - {fileID: 1468671033515969952, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
-    - {fileID: 7835616304472170273, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c725dcaf0437447db85672ba0e5653c0, type: 3}
