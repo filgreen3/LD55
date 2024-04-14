@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,15 +6,19 @@ public class OrganSystem : MonoBehaviour, ISystem
 {
     [SerializeField] private TMPro.TMP_Text _limitText;
     [SerializeField] private Organ _baseOrganPrefab;
+    [SerializeField] private ShakeText _shakeText;
 
+
+    private static OrganSystem _instance;
     public static int OrganLimit => 2 + 2 * WaveSystem.CurrentWave;
     public static int CurrentOrgans => OrganBuilder.ConnectedOrgans.Count;
-
     public static bool IsFull => CurrentOrgans >= OrganLimit;
 
+    public static void TriggerLimit() => _instance._shakeText.Shake();
 
     private void Start()
     {
+        _instance = this;
         WaveSystem.OnNewWave += (t) => UpdateLimitText();
         OrganBuilder.OnOrganConnectedToMonster += (t) => UpdateLimitText();
         Organ.OrganDestroyedStatic += (t) => UpdateLimitText();
@@ -41,5 +44,4 @@ public class OrganSystem : MonoBehaviour, ISystem
             return Instantiate(load);
         return null;
     }
-
 }

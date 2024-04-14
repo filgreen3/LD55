@@ -5979,6 +5979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _limitText: {fileID: 1574848884}
   _baseOrganPrefab: {fileID: 3377446123521012121, guid: a6868ed87600a4ed0a8f7eea5456439d, type: 3}
+  _shakeText: {fileID: 0}
 --- !u!1 &916768407
 GameObject:
   m_ObjectHideFlags: 0
@@ -6553,7 +6554,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1806910263153387396, guid: 2d1c10789b8a242cc92c44e99ee1f063, type: 3}
   m_PrefabInstance: {fileID: 2454615670888296709}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1894687224}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -11798,6 +11799,105 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1894687224 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4708326381245036601, guid: 2d1c10789b8a242cc92c44e99ee1f063, type: 3}
+  m_PrefabInstance: {fileID: 2454615670888296709}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1894687227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894687224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85d648f764cc846648825b705ca49004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 1574848884}
+  _targetColor: {r: 1, g: 0.2971698, b: 0.2971698, a: 1}
+  _duration: 0.5
+  _magnitude: 0.2
+  _curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: -3.6734676
+      outSlope: -3.6734676
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.20416677
+      value: -0.75
+      inSlope: 0.4855399
+      outSlope: 0.4855399
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.4948302
+      value: 0.6
+      inSlope: -0.22785427
+      outSlope: -0.22785427
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.31541178
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.597219
+      inSlope: -0.8430081
+      outSlope: -0.8430081
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7127713
+      value: -0.4
+      inSlope: -0.025600623
+      outSlope: -0.025600623
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.83229864
+      value: 0.3
+      inSlope: 0.23125957
+      outSlope: 0.23125957
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9313479
+      value: -0.1
+      inSlope: -0.11831073
+      outSlope: -0.11831073
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 1.4566199
+      outSlope: 1.4566199
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!224 &1919300358 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3864465587683574287, guid: 2d1c10789b8a242cc92c44e99ee1f063, type: 3}
@@ -12196,7 +12296,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3864465587683574287, guid: 2d1c10789b8a242cc92c44e99ee1f063, type: 3}
       insertIndex: 2
       addedObject: {fileID: 645220214}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4708326381245036601, guid: 2d1c10789b8a242cc92c44e99ee1f063, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1894687227}
   m_SourcePrefab: {fileID: 100100000, guid: 2d1c10789b8a242cc92c44e99ee1f063, type: 3}
 --- !u!114 &2454615670888296710 stripped
 MonoBehaviour:
