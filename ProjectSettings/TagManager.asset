@@ -14,9 +14,9 @@ TagManager:
   - Part
   - CurrentPart
   - Interactive
-  - 
-  - 
-  - 
+  - Character
+  - ProjectileToCharacter
+  - ProjectileToOrgan
   - 
   - 
   - 

@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class OrganTierSystem : MonoBehaviour, ISystem
 {
-
     public static Action OnTierChange;
 
     private static int _tireLevel = 1;
@@ -22,6 +21,8 @@ public class OrganTierSystem : MonoBehaviour, ISystem
 
     private void Start()
     {
+        OnTierChange = null;
+        TireLevel = 1;
         foreach (var panel in _tierPanels)
         {
             panel.LoadOrgans(_organDispayPrefab);
