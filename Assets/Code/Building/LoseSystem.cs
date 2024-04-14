@@ -20,6 +20,7 @@ public class LoseSystem : MonoBehaviour, ISystem
 
     public void Show()
     {
+        if (this == null) return;
         _loseScreenGroup.alpha = 0;
         _loseScreenGroup.blocksRaycasts = true;
         _loseScreenGroup.interactable = true;

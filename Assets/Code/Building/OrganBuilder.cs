@@ -9,6 +9,7 @@ public class OrganBuilder : MonoBehaviour, ISystem
 
     [SerializeField] private LineRenderer _line;
     [SerializeField] private Transform _monsterBase;
+    [SerializeField] private Organ _baseOrgan;
 
     private static OrganBuilder _instance;
 
@@ -20,6 +21,7 @@ public class OrganBuilder : MonoBehaviour, ISystem
             if (value != null && value.CanConnect == false)
             {
                 var nameOrgan = value.gameObject.name.Replace("(Clone)", "");
+                ConnectedOrgans.Remove(value);
                 value.DisconnectAll();
                 Destroy(value.gameObject);
                 value = OrganSystem.LoadOrgan(nameOrgan);
@@ -82,6 +84,7 @@ public class OrganBuilder : MonoBehaviour, ISystem
     private void Awake()
     {
         ConnectedOrgans.Clear();
+        ConnectedOrgans.Add(_baseOrgan);
         Organ.OrganDestroyedStatic += (t) => ConnectedOrgans.Remove(t);
         GameControl.Instance.Control.Press1.started += ctx => Point();
         GameControl.Instance.Control.Press1.canceled += ctx => Release();
@@ -104,7 +107,7 @@ public class OrganBuilder : MonoBehaviour, ISystem
 
 
         var obj = Physics2D.OverlapPoint(GetMousePosition(), LayerMask.GetMask("Part"));
-        if (obj && obj.TryGetComponent<Organ>(out var part))
+        if (obj && obj.TryGetComponent<Organ>(out var part) && part != _baseOrgan)
         {
             CurrentOrgan = part;
         }
