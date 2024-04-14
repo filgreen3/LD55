@@ -9,6 +9,8 @@ public class CameraLook : MonoBehaviour, ISystem
 
     private Vector3 _targetPosition;
 
+    public float XOffest { get => _offset.x; set => _offset.x = value; }
+
     public Vector3 TargetPosition
     {
         get

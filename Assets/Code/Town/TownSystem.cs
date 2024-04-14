@@ -44,6 +44,7 @@ public class TownSystem : MonoBehaviour, ISystem
     public void TownLost()
     {
         _cameraTartget.position = Vector3.zero;
+        MoveMonster(Vector3.zero);
         Clean();
         WaveSystem.CurrentWave++;
         _organBuilder.CanBuild = true;
