@@ -20,6 +20,8 @@ public class OrganBloodShooter : BloodReciver, IOrganComponentInit
 
     private void Shoot()
     {
+        if (TownSystem.IsBattle == false) return;
+        if (TownEnemes.CurrentTownEnemes.CreatedCharacters.Count == 0) return;
         ResourcesCout = 0;
         var enemy = TownEnemes.CurrentTownEnemes.CreatedCharacters[UnityEngine.Random.Range(0, TownEnemes.CurrentTownEnemes.CreatedCharacters.Count)];
         if (enemy != null)

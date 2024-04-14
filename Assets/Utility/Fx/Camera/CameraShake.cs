@@ -37,8 +37,6 @@ public class CameraShake : MonoBehaviour, ISystem
 
     private void Update()
     {
-
         _virtualCamera.localRotation = Quaternion.Euler(Vector3.forward * (Mathf.Sin(Time.time * Frequency) * Amplitude));
-
     }
 }

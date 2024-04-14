@@ -48,7 +48,7 @@ public class Character : Entity<IEntityComponent>
     {
         if (Mathf.Abs(other.relativeVelocity.y) > 10 && other.gameObject.layer == LayerMask.NameToLayer("Part"))
         {
-            this.GetHealth().HealthPoints--;
+            this.GetHealth().HealthPoints = 0;
         }
     }
 }

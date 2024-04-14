@@ -12,6 +12,7 @@ public class OrganDamageDisplay : IOrganComponent, IOrganComponentInit
     {
         _healthComp = organ.GetHealth();
         _organ = organ;
+        _organ.GetHealth().OnDamage += (t) => CameraShake.Shake(0.1f, 3, 0.5f);
         _organRender = organ.GetRender();
         _healthComp.OnDamage += (t) => DamageHandle(1);
     }
@@ -30,5 +31,15 @@ public class OrganDamageDisplay : IOrganComponent, IOrganComponentInit
         _organRender.Color = Color.red;
         yield return new WaitForSeconds(0.1f);
         _organRender.Color = Color.white;
+    }
+}
+
+
+
+
+public class OrganDamageDisplayShake : IOrganComponent, IOrganComponentInit
+{
+    public void Init(Organ organ)
+    {
     }
 }

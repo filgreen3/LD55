@@ -48,7 +48,8 @@ MonoBehaviour:
   - rid: 1929229795126673430
   - rid: 1929229795126673432
   - rid: 1929229795126673438
-  Size: 5
+  - rid: 1929229823494848514
+  Size: 4.25
   references:
     version: 2
     RefIds:
@@ -69,3 +70,7 @@ MonoBehaviour:
         - {fileID: 541321121858354923, guid: 6e0de3334383d4026ae233b646970d1d, type: 3}
         CreatedCharacters: []
         EnemyCount: 6
+    - rid: 1929229823494848514
+      type: {class: TownWall, ns: , asm: Assembly-CSharp}
+      data:
+        _wall: {fileID: 5387581072065496741, guid: 5cf52c3ee81a849f6a40f51e082b57bd, type: 3}

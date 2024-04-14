@@ -34,7 +34,7 @@ public class TownSystem : MonoBehaviour, ISystem
         if (_currentTownGenerator != null)
             Destroy(_currentTownGenerator.gameObject);
 
-        var pos = Vector3.right * UnityEngine.Random.Range(10, 15);
+        var pos = Vector3.right * 15f;
         _currentTownGenerator = Instantiate(generator, pos, Quaternion.identity, transform);
         _currentTownGenerator.Generate(_currentTownGenerator);
         _cameraTartget.position = _currentTownGenerator.transform.position.x * Vector3.right;
