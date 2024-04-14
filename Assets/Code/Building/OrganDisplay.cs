@@ -14,6 +14,7 @@ public class OrganDisplay : MonoBehaviour, IPointerDownHandler
         CurrentOrgan = organ;
         _organIcon.sprite = organ.GetRender().Sprite;
         _organLockIcon.SetActive(!organ.GetTier().IsOpen);
+        OrganTierSystem.OnTierChange += () => _organLockIcon.SetActive(!organ.GetTier().IsOpen);
     }
 
     public void OnPointerDown(PointerEventData eventData)

@@ -9,7 +9,8 @@ public class OrganTierSystem : MonoBehaviour, ISystem
     private static int _tireLevel = 1;
     public static int TireLevel
     {
-        get => _tireLevel; private set
+        get => _tireLevel;
+        set
         {
             _tireLevel = value;
             OnTierChange?.Invoke();
@@ -26,7 +27,5 @@ public class OrganTierSystem : MonoBehaviour, ISystem
             panel.LoadOrgans(_organDispayPrefab);
         }
     }
-
-
 }
 

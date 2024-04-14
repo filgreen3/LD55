@@ -54,6 +54,7 @@ public class TownSystem : MonoBehaviour, ISystem
         WaveSystem.CurrentWave++;
         _organBuilder.CanBuild = true;
         OnTownEnd?.Invoke();
+        OrganTierSystem.TireLevel++;
     }
     public void MoveMonster(Vector3 pos)
     {
