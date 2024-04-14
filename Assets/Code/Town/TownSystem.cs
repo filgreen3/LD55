@@ -66,8 +66,8 @@ public class TownSystem : MonoBehaviour, ISystem
     private IEnumerator Win()
     {
         OnTownEnd?.Invoke();
-        OrganTierSystem.TireLevel++;
         WaveSystem.CurrentWave++;
+        OrganTierSystem.UpdateTire();
         IsBattle = false;
         yield return new WaitForSeconds(1f);
         _cameraTartget.position = Vector3.zero;
@@ -96,8 +96,11 @@ public class TownSystem : MonoBehaviour, ISystem
         {
             organ.Rig.bodyType = RigidbodyType2D.Dynamic;
         }
+    }
 
-
-
+    private void OnDisable()
+    {
+        OnTownStart = null;
+        OnTownEnd = null;
     }
 }

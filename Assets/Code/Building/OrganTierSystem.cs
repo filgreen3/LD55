@@ -9,7 +9,7 @@ public class OrganTierSystem : MonoBehaviour, ISystem
     public static int TireLevel
     {
         get => _tireLevel;
-        set
+        private set
         {
             _tireLevel = value;
             OnTierChange?.Invoke();
@@ -27,6 +27,17 @@ public class OrganTierSystem : MonoBehaviour, ISystem
         {
             panel.LoadOrgans(_organDispayPrefab);
         }
+    }
+
+    public static void UpdateTire()
+    {
+        var tier = Mathf.RoundToInt((WaveSystem.CurrentWave / (float)TownSystem.AllWaves) * 4);
+        TireLevel = Mathf.Clamp(tier, 1, 4);
+    }
+
+    private void OnDisable()
+    {
+        TireLevel = 1;
     }
 }
 

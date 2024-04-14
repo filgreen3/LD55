@@ -110,6 +110,11 @@ public class OrganBuilder : MonoBehaviour, ISystem
         GameControl.Instance.Control.Press1.started -= ctx => Point();
         GameControl.Instance.Control.Press1.canceled -= ctx => Release();
         GameControl.Instance.Control.Rotate.performed -= ctx => Rotate();
+
+
+        OnStartBuildingOrgan = null;
+        OnEndBuildingOrgan = null;
+        OnOrganConnectedToMonster = null;
     }
 
     private void Point()
@@ -255,4 +260,5 @@ public class OrganBuilder : MonoBehaviour, ISystem
     {
         return Camera.main.ScreenToWorldPoint(GameControl.Instance.Control.MouseLook.ReadValue<Vector2>());
     }
+
 }

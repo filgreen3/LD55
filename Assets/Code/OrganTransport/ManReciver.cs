@@ -1,15 +1,15 @@
 using UnityEngine;
 using System;
 
-public class BloodReciver : IOrganComponentResourceReceiver, IOrganComponentResourceStorage
+public class ManReciver : IOrganComponentResourceReceiver, IOrganComponentResourceStorage
 {
     public virtual bool CanRecive => ResourcesCout < _maxResources;
 
-    public OrganResources ResourceType => OrganResources.Blood;
+    public OrganResources ResourceType => OrganResources.Man;
 
     public int ResourcesCout { get; set; }
 
-    public Action<BloodReciver> OnReciveResource;
+    public Action<ManReciver> OnReciveResource;
 
     [SerializeField] private int _maxResources;
 

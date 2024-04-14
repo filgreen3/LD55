@@ -41,11 +41,11 @@ public class ArcherWalkerTargeter : IEntityComponentInit
     {
         _doneMoving = true;
         var projectile = ProjectileHelperSystem.GetProjectile();
-        projectile.transform.position = _character.GetCharacterData().Rig2D.position;
+        projectile.transform.position = _character.GetCharacterData().Rig2D.position + Vector2.up * 0.5f;
         projectile.SetDamage(_damage);
         projectile.SetLayer(ProjectileType.ToOrgan);
         projectile.SetColor(Color.magenta);
-        var dir = (target.Rig.position - _character.GetCharacterData().Rig2D.position).normalized;
+        var dir = (target.Rig.position - (_character.GetCharacterData().Rig2D.position + Vector2.up * 0.5f)).normalized;
         projectile.Launch(dir, 15);
 
     }

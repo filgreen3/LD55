@@ -34,4 +34,10 @@ public class WaveSystem : MonoBehaviour, ISystem
     {
         _waveText.text = $"{CurrentWave}/{TownSystem.AllWaves} Wave";
     }
+
+    private void OnDisable()
+    {
+        CurrentWave = 1;
+        OnNewWave = null;
+    }
 }
