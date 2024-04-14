@@ -13,18 +13,16 @@ public class OrganEmmiterDisplay : MonoBehaviour, ISystem
 
     private void OrganBuilder_OnStartBuildingOrgan(Organ organ)
     {
-        
         if (!organ.HasOrganComponent<IOrganComponentResourceReceiver>()) return;
-
         var neededResources = organ.GetOrganComponent<IOrganComponentResourceReceiver>().ResourceType;
         var emiter = (IOrganComponentResourceEmmiter)null;
-
         foreach (var item in OrganBuilder.ConnectedOrgans)
         {
             if (item == null) continue;
             emiter = item.GetOrganComponent<IOrganComponentResourceEmmiter>();
             if (emiter != null && emiter.ResourceType == neededResources)
             {
+                Debug.Log("D");
                 var particle = ResourceParticleHelperSystem.GetParticle(neededResources);
                 particle.transform.position = item.transform.position;
                 _particles.Add(particle);

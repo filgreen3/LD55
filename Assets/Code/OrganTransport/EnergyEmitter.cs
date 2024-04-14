@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 public class EnergyEmitter : IOrganComponentResourceEmmiter, IOrganComponentConnectNotify, IOrganComponentConnect
 {
-    public OrganResources ResourceType => OrganResources.Blood;
+    public OrganResources ResourceType => OrganResources.Energy;
 
     private Dictionary<EnergyReciver, Transport.Connection> _connectedOrganReciver = new();
 

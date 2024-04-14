@@ -5,7 +5,7 @@ public class EnergyReciver : IOrganComponentResourceReceiver, IOrganComponentRes
 {
     public virtual bool CanRecive => ResourcesCout < _maxResources;
 
-    public OrganResources ResourceType => OrganResources.Energy;
+    public virtual OrganResources ResourceType => OrganResources.Energy;
 
     public int ResourcesCout { get; set; }
 
