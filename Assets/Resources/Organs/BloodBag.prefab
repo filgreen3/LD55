@@ -124,6 +124,18 @@ PrefabInstance:
       propertyPath: managedReferences[1929229795126673429]._emitRate
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5771945001452381087, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1434696202, guid: 1e6eefff5c0ae4694b0d06abd6c896da, type: 3}
+    - target: {fileID: 7705128092727194904, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 7705128092727194904, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.0833334
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
