@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System;
+using System.Collections;
 
 public class TownSystem : MonoBehaviour, ISystem
 {
@@ -51,15 +52,22 @@ public class TownSystem : MonoBehaviour, ISystem
 
     public void TownLost()
     {
+        StartCoroutine(Win());
+    }
+
+    private IEnumerator Win()
+    {
+        OnTownEnd?.Invoke();
+        OrganTierSystem.TireLevel++;
+        WaveSystem.CurrentWave++;
+        IsBattle = false;
+        yield return new WaitForSeconds(1f);
         _cameraTartget.position = Vector3.zero;
         MoveMonster(Vector3.zero);
         Clean();
-        WaveSystem.CurrentWave++;
         _organBuilder.CanBuild = true;
-        OnTownEnd?.Invoke();
-        OrganTierSystem.TireLevel++;
-        IsBattle = false;
     }
+
     public void MoveMonster(Vector3 pos)
     {
         pos += Vector3.up * 10;
