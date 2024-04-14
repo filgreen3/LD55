@@ -11,6 +11,7 @@ public class WinSystem : MonoBehaviour, ISystem
     [SerializeField] private TMPro.TMP_Text _winText;
 
     private static WinSystem _instance;
+    public static bool ReadyToWin;
 
     private void Awake()
     {

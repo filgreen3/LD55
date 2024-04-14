@@ -10,7 +10,9 @@ public class TownSystem : MonoBehaviour, ISystem
     [SerializeField] private Transform _cameraTartget;
     [SerializeField] private OrganBuilder _organBuilder;
     [SerializeField] private GameObject _buildLock;
+    [SerializeField] private TownGenerator _kingTown;
     [SerializeField] private TownGenerator[] _townGenerators;
+
 
     public Action OnTownStart;
     public Action OnTownEnd;
@@ -34,7 +36,14 @@ public class TownSystem : MonoBehaviour, ISystem
     private void GenerateRandomTown()
     {
         _organBuilder.CanBuild = false;
-        GenerateTown(_townGenerators[Mathf.Clamp(WaveSystem.CurrentWave, 0, AllWaves - 1)]);
+        if (WinSystem.ReadyToWin)
+        {
+            GenerateTown(_kingTown);
+        }
+        else
+        {
+            GenerateTown(_townGenerators[Mathf.Clamp(WaveSystem.CurrentWave, 0, AllWaves - 1)]);
+        }
         OnTownStart?.Invoke();
         _buttonToStart.gameObject.SetActive(false);
         _buildLock.SetActive(true);

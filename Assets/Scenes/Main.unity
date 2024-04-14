@@ -11333,6 +11333,7 @@ MonoBehaviour:
   _cameraTartget: {fileID: 1428824102}
   _organBuilder: {fileID: 750286807}
   _buildLock: {fileID: 1700615836}
+  _kingTown: {fileID: 4200923618899322360, guid: d58cb852f9aa647d5b59cd1c80795302, type: 3}
   _townGenerators:
   - {fileID: 4200923618899322360, guid: c11719dc22c6247a68f7358b51861fbe, type: 3}
   - {fileID: 4200923618899322360, guid: cbc1668c1ef024d0d8f2bcac0f105984, type: 3}

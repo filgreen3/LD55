@@ -56,6 +56,7 @@ MonoBehaviour:
   - rid: 1929229812426604546
   - rid: 1929229812426604550
   - rid: 1929229812426604551
+  - rid: 1929229823494848532
   references:
     version: 2
     RefIds:
@@ -93,6 +94,9 @@ MonoBehaviour:
       type: {class: CenterTarget, ns: , asm: Assembly-CSharp}
       data:
         Center: {x: 0, y: 0, z: 0}
+    - rid: 1929229823494848532
+      type: {class: KingDeadWin, ns: , asm: Assembly-CSharp}
+      data: 
 --- !u!212 &7798558087349246731
 SpriteRenderer:
   m_ObjectHideFlags: 0
