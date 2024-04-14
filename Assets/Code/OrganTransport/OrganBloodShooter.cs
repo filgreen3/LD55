@@ -3,7 +3,7 @@ using UnityEngine;
 public class OrganBloodShooter : BloodReciver, IOrganComponentInit
 {
     [SerializeField] private int _damage = 1;
-    public override bool CanRecive => base.CanRecive && TownSystem.IsBattle;
+    public override bool CanRecive => TownSystem.IsBattle;
 
     private Transform _transf;
 
@@ -32,7 +32,7 @@ public class OrganBloodShooter : BloodReciver, IOrganComponentInit
         projectile.SetDamage(_damage);
         projectile.SetLayer(ProjectileType.ToCharacter);
         projectile.SetColor(Color.red);
-        var dir = ((enemy.transform.position+Vector3.up*0.5f) - _transf.position).normalized;
+        var dir = ((enemy.transform.position + Vector3.up * 0.5f) - _transf.position).normalized;
         projectile.Launch(dir, 15);
 
     }

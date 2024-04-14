@@ -20,7 +20,7 @@ public class EnergyEmitter : IOrganComponentResourceEmmiter, IOrganComponentConn
 
     public void OnConnect(Organ parent, Organ target)
     {
-        if (target.GetOrganComponent<BloodReciver>() != null)
+        if (target.GetOrganComponent<EnergyReciver>() != null)
         {
             _connectedOrganReciver.Add(target.GetOrganComponent<EnergyReciver>(), parent.GetTransport().MakeConnection(parent, target));
         }

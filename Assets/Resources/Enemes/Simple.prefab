@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _componentsList:
   - rid: 1929229795126673436
+  - rid: 1929229823494848518
   - rid: 1929229795126673435
   - rid: 1929229795126673437
   - rid: 1929229812426604544
@@ -88,6 +89,10 @@ MonoBehaviour:
     - rid: 1929229812426604551
       type: {class: DestroyOnDeath, ns: , asm: Assembly-CSharp}
       data: 
+    - rid: 1929229823494848518
+      type: {class: CenterTarget, ns: , asm: Assembly-CSharp}
+      data:
+        Center: {x: 0, y: 0, z: 0}
 --- !u!212 &7798558087349246731
 SpriteRenderer:
   m_ObjectHideFlags: 0

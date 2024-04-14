@@ -71,7 +71,7 @@ public class OrganInfoDisplay : MonoBehaviour, ISystem
     private void Clean()
     {
         _titleText.text = "";
-        _mainText.text = "";
+        _mainText.text = "Some organs need resources<sprite=\"icon\" name=blood>,<sprite=\"icon\" name=energy>. The source of them will be highlighted. Survive all waves. Make <sprite=\"icon\" name=damage> to fight.";
     }
 
     private Vector2 GetMousePosition()

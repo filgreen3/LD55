@@ -9,6 +9,7 @@ public class TownSystem : MonoBehaviour, ISystem
     [SerializeField] private Button _buttonToStart;
     [SerializeField] private Transform _cameraTartget;
     [SerializeField] private OrganBuilder _organBuilder;
+    [SerializeField] private GameObject _buildLock;
     [SerializeField] private TownGenerator[] _townGenerators;
 
     public Action OnTownStart;
@@ -36,6 +37,7 @@ public class TownSystem : MonoBehaviour, ISystem
         GenerateTown(_townGenerators[Mathf.Clamp(WaveSystem.CurrentWave, 0, AllWaves - 1)]);
         OnTownStart?.Invoke();
         _buttonToStart.gameObject.SetActive(false);
+        _buildLock.SetActive(true);
     }
 
     public void GenerateTown(TownGenerator generator)
@@ -75,6 +77,7 @@ public class TownSystem : MonoBehaviour, ISystem
         Clean();
         _organBuilder.CanBuild = true;
         _buttonToStart.gameObject.SetActive(true);
+        _buildLock.SetActive(false);
     }
 
     public void MoveMonster(Vector3 pos)

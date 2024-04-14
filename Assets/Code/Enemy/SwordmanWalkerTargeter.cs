@@ -20,7 +20,7 @@ public class SwordmanWalkerTargeter : IEntityComponentInit
 
     private IEnumerator Behaviour()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(1.5f);
         _pos = _character.GetEntityComponent<CenterTarget>().Center;
         Move();
 

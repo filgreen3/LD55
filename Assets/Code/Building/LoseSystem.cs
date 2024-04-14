@@ -64,4 +64,3 @@ public class LoseSystem : MonoBehaviour, ISystem
         _restartButton.gameObject.SetActive(true);
     }
 }
-
