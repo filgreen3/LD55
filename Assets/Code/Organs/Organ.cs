@@ -15,6 +15,8 @@ public class Organ : Connectable
     public static Action<Organ> OnPartDown;
     public static Action<Organ> OnPartUp;
 
+    public static Action<Organ> OrganDestroyed;
+
     protected override void Awake()
     {
         base.Awake();
@@ -121,6 +123,13 @@ public class Organ : Connectable
                 return true;
         }
         return false;
+    }
+
+
+    private void OnDestroy()
+    {
+        if (this != null)
+            OrganDestroyed?.Invoke(this);
     }
 }
 

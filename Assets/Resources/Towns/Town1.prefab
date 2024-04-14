@@ -70,4 +70,5 @@ MonoBehaviour:
       data:
         Characters:
         - {fileID: 8205731254410798356, guid: 0a3d370d7f24a45d18d8944593b35eb7, type: 3}
+        - {fileID: 541321121858354923, guid: 6e0de3334383d4026ae233b646970d1d, type: 3}
         EnemyCount: 6

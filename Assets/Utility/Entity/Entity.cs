@@ -79,6 +79,17 @@ public abstract class Entity<W> : Entity where W : class
         }
     }
 
+    public virtual bool TryGetEntityComponent<T>(out T component) where T : W
+    {
+        if (HasEntityComponent(typeof(T)))
+        {
+            component = GetEntityComponent<T>();
+            return true;
+        }
+        component = default(T);
+        return false;
+    }
+
     public override bool HasEntityComponent(Type t)
     {
         if (!Init || AllowDuplication)

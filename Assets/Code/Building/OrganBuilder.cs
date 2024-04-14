@@ -78,6 +78,7 @@ public class OrganBuilder : MonoBehaviour, ISystem
     private void Awake()
     {
         ConnectedOrgans.Clear();
+        Organ.OrganDestroyed += (t) => ConnectedOrgans.Remove(t);
         GameControl.Instance.Control.Press1.started += ctx => Point();
         GameControl.Instance.Control.Press1.canceled += ctx => Release();
         GameControl.Instance.Control.Rotate.performed += ctx => Rotate();

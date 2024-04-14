@@ -46,7 +46,7 @@ public class Character : Entity<IEntityComponent>
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Part"))
+        if (Mathf.Abs(other.relativeVelocity.y) > 10 && other.gameObject.layer == LayerMask.NameToLayer("Part"))
         {
             this.GetHealth().HealthPoints--;
         }
@@ -58,5 +58,7 @@ public static class CharacterHelper
     public static CharacterData GetCharacterData(this Character character) => character.GetEntityComponent<CharacterData>();
     public static Health GetHealth(this Character character) => character.GetEntityComponent<Health>();
     public static ChracterAnimator GetAnimator(this Character character) => character.GetEntityComponent<ChracterAnimator>();
+    public static Walker GetWalker(this Character character) => character.GetEntityComponent<Walker>();
 
 }
+

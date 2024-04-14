@@ -71,8 +71,8 @@ MonoBehaviour:
     - rid: 1929229795126673409
       type: {class: OrganHealth, ns: , asm: Assembly-CSharp}
       data:
-        _value: 0
-        _maxValue: 0
+        _value: 2
+        _maxValue: 2
 --- !u!212 &5771945001452381087
 SpriteRenderer:
   m_ObjectHideFlags: 0
