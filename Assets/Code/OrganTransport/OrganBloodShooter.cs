@@ -24,9 +24,9 @@ public class OrganBloodShooter : BloodReciver, IOrganComponentInit
         if (TownEnemes.CurrentTownEnemes.CreatedCharacters.Count == 0) return;
         ResourcesCout = 0;
         var enemy = TownEnemes.CurrentTownEnemes.CreatedCharacters[UnityEngine.Random.Range(0, TownEnemes.CurrentTownEnemes.CreatedCharacters.Count)];
-        if (enemy != null)
-            enemy.GetHealth().HealthPoints -= _damage;
 
+        if (enemy == null) return;
+        enemy.GetHealth().HealthPoints -= _damage;
         var projectile = ProjectileHelperSystem.GetProjectile();
         projectile.transform.position = _transf.position;
         projectile.SetDamage(_damage);

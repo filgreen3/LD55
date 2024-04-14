@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3086880457553592828}
   - component: {fileID: 1012499671914711753}
   m_Layer: 9
-  m_Name: SwordMan
+  m_Name: ArcherMan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,8 +55,7 @@ MonoBehaviour:
   - rid: 1929229812426604550
   - rid: 1929229812426604551
   - rid: 1929229812426604552
-  - rid: 1929229812426604554
-  - rid: 1929229812426604555
+  - rid: 1929229823494848515
   references:
     version: 2
     RefIds:
@@ -68,7 +67,7 @@ MonoBehaviour:
     - rid: 1929229795126673436
       type: {class: CharacterData, ns: , asm: Assembly-CSharp}
       data:
-        Name: SwordMan
+        Name: ArcherMan
         Rig2D: {fileID: 3086880457553592828}
         Coll2D: {fileID: 1012499671914711753}
         SpriteRenderer: {fileID: 4999950495931870699}
@@ -91,14 +90,12 @@ MonoBehaviour:
       type: {class: CenterTarget, ns: , asm: Assembly-CSharp}
       data:
         Center: {x: 0, y: 0, z: 0}
-    - rid: 1929229812426604554
-      type: {class: AttackComponent, ns: , asm: Assembly-CSharp}
+    - rid: 1929229823494848515
+      type: {class: ArcherWalkerTargeter, ns: , asm: Assembly-CSharp}
       data:
+        _distance: 10
+        _shootDelay: 1
         _damage: 1
-        _waitAfterAttack: 1
-    - rid: 1929229812426604555
-      type: {class: SwordmanWalkerTargeter, ns: , asm: Assembly-CSharp}
-      data: 
 --- !u!212 &4999950495931870699
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -141,7 +138,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
-  m_Color: {r: 1, g: 0.4631136, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.8489032, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

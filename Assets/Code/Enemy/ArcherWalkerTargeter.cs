@@ -4,6 +4,8 @@ using System.Collections;
 public class ArcherWalkerTargeter : IEntityComponentInit
 {
     [SerializeField] private float _distance = 10;
+    [SerializeField] private float _shootDelay;
+    [SerializeField] private int _damage;
 
     private Vector2 _pos;
     private Character _character;
@@ -23,21 +25,29 @@ public class ArcherWalkerTargeter : IEntityComponentInit
     private IEnumerator Behaviour()
     {
         yield return new WaitForSeconds(0.2f);
-        _pos = _character.GetEntityComponent<CenterTarget>().Center;
-        Move();
 
         while (true)
         {
-            while (!CheckOrgan())
+            yield return new WaitForSeconds(_shootDelay + Random.value);
+            if (OrganBuilder.ConnectedOrgans.Count > 0)
             {
-                yield return new WaitForSeconds(0.4f);
-            }
-            if (CheckOrgan(out Organ organ))
-            {
-                _character.GetEntityComponent<AttackComponent>().DamageOrgan(organ);
-                yield return new WaitForSeconds(_character.GetEntityComponent<AttackComponent>().WaitAfterAttack);
+                var target = OrganBuilder.ConnectedOrgans[Random.Range(0, OrganBuilder.ConnectedOrgans.Count)];
+                Shoot(target);
             }
         }
+    }
+
+    private void Shoot(Organ target)
+    {
+        _doneMoving = true;
+        var projectile = ProjectileHelperSystem.GetProjectile();
+        projectile.transform.position = _character.GetCharacterData().Rig2D.position;
+        projectile.SetDamage(_damage);
+        projectile.SetLayer(ProjectileType.ToOrgan);
+        projectile.SetColor(Color.magenta);
+        var dir = (target.Rig.position - _character.GetCharacterData().Rig2D.position).normalized;
+        projectile.Launch(dir, 15);
+
     }
 
     private bool CheckOrgan()
