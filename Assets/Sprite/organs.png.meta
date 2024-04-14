@@ -479,6 +479,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: organs_0
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 1
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86fdc90c41773470da63906878eb4bb8
+      internalID: 28513802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: organs_2
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 4
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d79bb6eb25694069b714cbe439be519
+      internalID: -1294193051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -503,7 +545,9 @@ TextureImporter:
       heart: -1620261516
       liver: -26312710
       lung: 2144347150
+      organs_0: 28513802
       organs_1: -106842934
+      organs_2: -1294193051
       shell: 1510844090
       solar: -1145193347
       stomack: 1638204207

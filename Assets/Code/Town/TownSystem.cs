@@ -25,6 +25,7 @@ public class TownSystem : MonoBehaviour, ISystem
 
     private void Awake()
     {
+        IsBattle = false;
         _instance = this;
     }
 
@@ -114,5 +115,6 @@ public class TownSystem : MonoBehaviour, ISystem
     {
         OnTownStart = null;
         OnTownEnd = null;
+        IsBattle = false;
     }
 }

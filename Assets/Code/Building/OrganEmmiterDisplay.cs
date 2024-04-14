@@ -22,7 +22,6 @@ public class OrganEmmiterDisplay : MonoBehaviour, ISystem
             emiter = item.GetOrganComponent<IOrganComponentResourceEmmiter>();
             if (emiter != null && emiter.ResourceType == neededResources)
             {
-                Debug.Log("D");
                 var particle = ResourceParticleHelperSystem.GetParticle(neededResources);
                 particle.transform.position = item.transform.position;
                 _particles.Add(particle);
