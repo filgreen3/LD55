@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class OrganDamageDisplay : IOrganComponent, IOrganComponentInit
 {
+    [SerializeField] private float _shackMultiply = 1;
     private OrganHealth _healthComp;
     private Organ _organ;
     private OrganRender _organRender;
@@ -12,7 +13,7 @@ public class OrganDamageDisplay : IOrganComponent, IOrganComponentInit
     {
         _healthComp = organ.GetHealth();
         _organ = organ;
-        _organ.GetHealth().OnDamage += (t) => CameraShake.Shake(0.1f, 3, 0.5f);
+        _organ.GetHealth().OnDamage += (t) => CameraShake.Shake(_shackMultiply, 3, 1f);
         _organRender = organ.GetRender();
         _healthComp.OnDamage += (t) => DamageHandle(1);
     }

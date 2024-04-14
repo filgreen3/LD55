@@ -132,6 +132,10 @@ PrefabInstance:
       propertyPath: managedReferences[1929229795126673429]._emitRate
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
+      propertyPath: managedReferences[1929229812426604582]._shackMultiply
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4860111019266863890, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: m_Mass
       value: 20
