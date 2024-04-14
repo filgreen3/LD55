@@ -14,6 +14,7 @@ public class TimeEmitersTrigger : IOrganComponentUpdate, IOrganComponentInit
 
     public void Update()
     {
+        if (_emiters.Length == 0 || !TownSystem.IsBattle) return;
         _emitTimer += Time.deltaTime;
         if (_emitTimer >= _emitRate)
         {

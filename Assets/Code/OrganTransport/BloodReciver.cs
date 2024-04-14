@@ -3,7 +3,7 @@ using System;
 
 public class BloodReciver : IOrganComponentResourceReceiver, IOrganComponentResourceStorage
 {
-    public bool CanRecive => ResourcesCout < _maxResources;
+    public virtual bool CanRecive => ResourcesCout < _maxResources;
 
     public OrganResources ResourceType => OrganResources.Blood;
 
@@ -13,11 +13,9 @@ public class BloodReciver : IOrganComponentResourceReceiver, IOrganComponentReso
 
     [SerializeField] private int _maxResources;
 
-    public void ReciveResource()
+    public virtual void ReciveResource()
     {
         ResourcesCout++;
         OnReciveResource?.Invoke(this);
     }
-    
-
 }

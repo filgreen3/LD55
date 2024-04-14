@@ -8,6 +8,8 @@ public class Health : IEntityComponent
     [SerializeField] private int _maxHealth;
     [SerializeField] private int _health;
 
+    private bool _isDead;
+
     public Action<int> OnDamage;
     public Action OnDeath;
     public int MaxHealth => _maxHealth;
@@ -18,12 +20,15 @@ public class Health : IEntityComponent
         {
             if (value == _health) return;
 
-            if (value <= 0 && _health > 0)
-            {
-                OnDeath?.Invoke();
-            }
+
             _health = Mathf.Clamp(value, 0, _maxHealth);
             OnDamage?.Invoke(_health);
+
+            if (value <= 0 && !_isDead)
+            {
+                _isDead = true;
+                OnDeath?.Invoke();
+            }
         }
     }
 

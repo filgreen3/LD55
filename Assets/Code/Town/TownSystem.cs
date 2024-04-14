@@ -15,6 +15,8 @@ public class TownSystem : MonoBehaviour, ISystem
 
     private TownGenerator _currentTownGenerator;
 
+    public static bool IsBattle;
+
     private void Start()
     {
         _buttonToStart.onClick.AddListener(GenerateRandomTown);
@@ -38,6 +40,7 @@ public class TownSystem : MonoBehaviour, ISystem
         _cameraTartget.position = _currentTownGenerator.transform.position.x * Vector3.right;
         _currentTownGenerator.OnTownLost += TownLost;
         MoveMonster(_currentTownGenerator.transform.position);
+        IsBattle = true;
     }
 
     public void Clean()
@@ -55,6 +58,7 @@ public class TownSystem : MonoBehaviour, ISystem
         _organBuilder.CanBuild = true;
         OnTownEnd?.Invoke();
         OrganTierSystem.TireLevel++;
+        IsBattle = false;
     }
     public void MoveMonster(Vector3 pos)
     {

@@ -5423,8 +5423,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
-    height: 1
+    width: 0.9166667
+    height: 2.8333335
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -5979,7 +5979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _limitText: {fileID: 1574848884}
   _baseOrganPrefab: {fileID: 3377446123521012121, guid: a6868ed87600a4ed0a8f7eea5456439d, type: 3}
-  _shakeText: {fileID: 0}
+  _shakeText: {fileID: 1894687227}
 --- !u!1 &916768407
 GameObject:
   m_ObjectHideFlags: 0
