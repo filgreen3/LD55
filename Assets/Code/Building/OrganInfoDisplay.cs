@@ -12,10 +12,15 @@ public class OrganInfoDisplay : MonoBehaviour, ISystem
         get => _currentInfoOrgan;
         set
         {
+            if (_currentInfoOrgan != null)
+            {
+                CurrentInfoOrgan.GetRender().Renderer.SetOutline(false);
+            }
             _currentInfoOrgan = value;
             if (value != null)
             {
                 DisplayInfo(value);
+                CurrentInfoOrgan.GetRender().Renderer.SetOutline(true);
             }
             else
             {

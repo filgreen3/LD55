@@ -5,10 +5,12 @@ public class ResourceParticleHelperSystem : MonoBehaviour, ISystem
 {
     private static ResourceParticleHelperSystem _instance;
     private ObjectPool<SpriteRenderer> _poolParticle;
+    [SerializeField] private Sprite[] _sprites;
 
     private void Awake()
     {
         _instance = this;
+        _sprites = Resources.LoadAll<Sprite>("Icon/Icons");
 
         _poolParticle = new ObjectPool<SpriteRenderer>(
         createFunc: () =>
@@ -27,17 +29,11 @@ public class ResourceParticleHelperSystem : MonoBehaviour, ISystem
     public static SpriteRenderer GetParticle(OrganResources organResources)
     {
         var particle = _instance._poolParticle.Get();
-        particle.color = ColorBasedOnResource(organResources);
+        particle.sprite = SpriteBasedOnResource(organResources);
         return particle;
     }
 
-    public static Color ColorBasedOnResource(OrganResources organResources) => organResources switch
-    {
-        OrganResources.Food => Color.green,
-        OrganResources.Blood => Color.red,
-        OrganResources.Energy => Color.yellow,
-        _ => Color.white,
-    };
+    public static Sprite SpriteBasedOnResource(OrganResources organResources) => _instance._sprites[(int)organResources];
 
     public static void ReleaseParticle(SpriteRenderer particle) => _instance._poolParticle.Release(particle);
 }

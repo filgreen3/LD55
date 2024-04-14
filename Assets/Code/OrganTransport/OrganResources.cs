@@ -1,7 +1,9 @@
-public enum OrganResources
+public enum OrganResources : int
 {
-    None,
-    Food,
     Blood,
-    Energy
+    Damage,
+    Energy,
+    Hp,
+    Man,
+    Time
 }
