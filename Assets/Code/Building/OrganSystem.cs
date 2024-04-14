@@ -27,7 +27,10 @@ public class OrganSystem : MonoBehaviour, ISystem
 
     public static Organ LoadOrgan(string name)
     {
-        return Instantiate(Resources.Load<Organ>($"Organs/{name}"));
+        var load = Resources.Load<Organ>($"Organs/{name}");
+        if (load != null)
+            return Instantiate(load);
+        return null;
     }
 
 }
