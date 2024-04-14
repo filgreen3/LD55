@@ -5423,9 +5423,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 1
-    height: 1
+    y: 0.008333334
+    width: 2.2375002
+    height: 2.3400002
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -5811,6 +5811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _line: {fileID: 403531685921481788}
   _monsterBase: {fileID: 317859727}
+  _baseOrgan: {fileID: 554975076}
 --- !u!1 &753891539
 GameObject:
   m_ObjectHideFlags: 0

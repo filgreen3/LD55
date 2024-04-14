@@ -154,7 +154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: _componentsList.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: AttachPoints.Array.data[0].y
@@ -202,7 +202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: _componentsList.Array.data[4]
-      value: 1929229795126673425
+      value: 1929229812426604573
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: managedReferences[1929229795126673411]
@@ -219,6 +219,10 @@ PrefabInstance:
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: managedReferences[1929229795126673425]
       value: Assembly-CSharp BloodReciver
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
+      propertyPath: managedReferences[1929229812426604573]
+      value: Assembly-CSharp OrganDamageDisplay
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: managedReferences[1929229795126673411]._tire
