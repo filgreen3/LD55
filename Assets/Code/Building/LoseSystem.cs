@@ -8,14 +8,18 @@ public class LoseSystem : MonoBehaviour, ISystem
     [SerializeField] private GameObject _loseScreen;
     [SerializeField] private CanvasGroup _loseScreenGroup;
     [SerializeField] private Button _restartButton;
-    [SerializeField] private Organ _mainOrgan;
     [SerializeField] private TMPro.TMP_Text _loseText;
 
     private void Start()
     {
         Time.timeScale = 1;
-        _mainOrgan.GetHealth().OnDeath += Show;
-        _mainOrgan.OnOrganDestroyed += (t) => Show();
+        BaseOrganComponent.AddAction(Subscribe);
+    }
+
+    private void Subscribe(Organ organ)
+    {
+        organ.GetHealth().OnDeath += Show;
+        organ.OnOrganDestroyed += (t) => Show();
     }
 
     public void Show()

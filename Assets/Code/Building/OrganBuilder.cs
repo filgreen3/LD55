@@ -9,15 +9,20 @@ public class OrganBuilder : MonoBehaviour, ISystem
 
     [SerializeField] private LineRenderer _line;
     [SerializeField] private Transform _monsterBase;
-    [SerializeField] private Organ _baseOrgan;
 
     private static OrganBuilder _instance;
 
+    public bool CanBuild
+    {
+        get => _canBuild;
+        set => _canBuild = value;
+    }
     public Organ CurrentOrgan
     {
         get => _currentOrgan;
         set
         {
+            if (!CanBuild) return;
             if (value != null && value.CanConnect == false)
             {
                 var nameOrgan = value.gameObject.name.Replace("(Clone)", "");
@@ -74,7 +79,7 @@ public class OrganBuilder : MonoBehaviour, ISystem
     public static Action<Organ> OnEndBuildingOrgan;
     public static List<Organ> ConnectedOrgans = new();
     public static Action<Organ> OnOrganConnectedToMonster;
-
+    private bool _canBuild = true;
 
     public static void CallToBuild(Organ organ)
     {
@@ -83,8 +88,14 @@ public class OrganBuilder : MonoBehaviour, ISystem
 
     private void Awake()
     {
-        ConnectedOrgans.Clear();
-        ConnectedOrgans.Add(_baseOrgan);
+        CanBuild = true;
+        BaseOrganComponent.AddAction((t) =>
+        {
+            ConnectedOrgans = new List<Organ>
+            {
+                t
+            };
+        });
         Organ.OrganDestroyedStatic += (t) => ConnectedOrgans.Remove(t);
         GameControl.Instance.Control.Press1.started += ctx => Point();
         GameControl.Instance.Control.Press1.canceled += ctx => Release();
@@ -104,10 +115,8 @@ public class OrganBuilder : MonoBehaviour, ISystem
     private void Point()
     {
         ConnectedOrgans.RemoveAll(t => t == null);
-
-
         var obj = Physics2D.OverlapPoint(GetMousePosition(), LayerMask.GetMask("Part"));
-        if (obj && obj.TryGetComponent<Organ>(out var part) && part != _baseOrgan)
+        if (obj && obj.TryGetComponent<Organ>(out var part) && part != BaseOrganComponent.BaseOrgan)
         {
             CurrentOrgan = part;
         }

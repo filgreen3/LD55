@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class TownSystem : MonoBehaviour, ISystem
 {
     [SerializeField] private Button _buttonToStart;
     [SerializeField] private Transform _cameraTartget;
-    [SerializeField] private Organ _monsterBaseOrgan;
-    [SerializeField] private Transform _monsterBaseTransform;
+    [SerializeField] private OrganBuilder _organBuilder;
     [SerializeField] private TownGenerator[] _townGenerators;
 
     private TownGenerator _currentTownGenerator;
@@ -18,6 +18,7 @@ public class TownSystem : MonoBehaviour, ISystem
 
     private void GenerateRandomTown()
     {
+        _organBuilder.CanBuild = false;
         GenerateTown(_townGenerators[Random.Range(0, _townGenerators.Length)]);
     }
 
@@ -30,10 +31,7 @@ public class TownSystem : MonoBehaviour, ISystem
         _currentTownGenerator = Instantiate(generator, pos, Quaternion.identity, transform);
         _currentTownGenerator.Generate(_currentTownGenerator);
         _cameraTartget.position = _currentTownGenerator.transform.position.x * Vector3.right;
-        _currentTownGenerator.OnTownLost += () => _cameraTartget.position = Vector3.zero;
-        _currentTownGenerator.OnTownLost += () => Clean();
-        _currentTownGenerator.OnTownLost += () => WaveSystem.CurrentWave++;
-
+        _currentTownGenerator.OnTownLost += TownLost;
         MoveMonster(_currentTownGenerator.transform.position);
     }
 
@@ -43,9 +41,34 @@ public class TownSystem : MonoBehaviour, ISystem
             Destroy(_currentTownGenerator.gameObject);
     }
 
+    public void TownLost()
+    {
+        _cameraTartget.position = Vector3.zero;
+        Clean();
+        WaveSystem.CurrentWave++;
+        _organBuilder.CanBuild = true;
+    }
     public void MoveMonster(Vector3 pos)
     {
-        _monsterBaseOrgan.Rig.bodyType = RigidbodyType2D.Dynamic;
-        _monsterBaseTransform.position = pos + Vector3.up * 10;
+        pos += Vector3.up * 10;
+        BaseOrganComponent.BaseOrgan.Rig.bodyType = RigidbodyType2D.Dynamic;
+
+        foreach (var organ in OrganBuilder.ConnectedOrgans)
+        {
+            organ.Rig.bodyType = RigidbodyType2D.Static;
+        }
+
+        for (int i = OrganBuilder.ConnectedOrgans.Count - 1; i >= 0; i--)
+        {
+            OrganBuilder.ConnectedOrgans[i].Rig.position = (Vector2)pos + (OrganBuilder.ConnectedOrgans[i].Rig.position - BaseOrganComponent.BaseOrgan.Rig.position);
+        }
+
+        foreach (var organ in OrganBuilder.ConnectedOrgans)
+        {
+            organ.Rig.bodyType = RigidbodyType2D.Dynamic;
+        }
+
+
+
     }
 }
