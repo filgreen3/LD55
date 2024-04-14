@@ -7,6 +7,8 @@ public class OrganInfoDisplay : MonoBehaviour, ISystem
     [SerializeField] private TMPro.TMP_Text _titleText;
     [SerializeField] private TMPro.TMP_Text _mainText;
 
+    private static OrganInfoDisplay _instance;
+
     private Organ CurrentInfoOrgan
     {
         get => _currentInfoOrgan;
@@ -33,6 +35,11 @@ public class OrganInfoDisplay : MonoBehaviour, ISystem
     private Collider2D _obj;
     private Organ _organ;
 
+    private void Awake()
+    {
+        _instance = this;
+    }
+
     private void Update()
     {
         _obj = Physics2D.OverlapPoint(GetMousePosition(), LayerMask.GetMask("Part"));
@@ -50,9 +57,13 @@ public class OrganInfoDisplay : MonoBehaviour, ISystem
 
     }
 
-    private void DisplayInfo(Organ organ)
+    public static void SetInfo(Organ organ) => _instance.DisplayInfo(organ);
+    public static void CleanInfo() => _instance.Clean();
+
+    public void DisplayInfo(Organ organ)
     {
-        var organComponentInfo = organ.GetEntityComponent<OrganComponentInfo>();
+        if (organ == null || !organ.TryGetEntityComponent<BasicInfo>(out var organComponentInfo)) return;
+
         _titleText.text = organComponentInfo.Name;
         _mainText.text = organComponentInfo.Description;
     }

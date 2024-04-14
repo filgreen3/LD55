@@ -3,7 +3,7 @@ using UnityEngine;
 public class BasicInfo : OrganComponentInfo, IOrganComponentInit
 {
     public override string Name => _name;
-    public override string Description => $"<sprite=\"icon\" name=hp> {_organ.GetHealth().Value}x" + _description;
+    public override string Description => _organ ? $"<sprite=\"icon\" name=hp> {_organ.GetHealth().Value}x" + _description : _description;
 
 
     private Organ _organ;

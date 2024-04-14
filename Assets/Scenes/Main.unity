@@ -11862,8 +11862,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: {fileID: 1574848884}
   _targetColor: {r: 1, g: 0.2971698, b: 0.2971698, a: 1}
-  _duration: 0.5
-  _magnitude: 0.2
+  _duration: 0.7
+  _magnitude: 20
   _curve:
     serializedVersion: 2
     m_Curve:
