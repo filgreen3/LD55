@@ -8,16 +8,14 @@ public class RandomWalker : IEntityComponent, IEntityComponentInit
     public void Init(Character character)
     {
         _character = character;
-        _character.StartCoroutine(RandomWalk());
+        Move();
     }
 
-    private IEnumerator RandomWalk()
+    private void Move()
     {
-        while (true)
-        {
-            _character.GetEntityComponent<Walker>().SetTarget(new Vector2(Random.Range(-5, 5), Random.Range(-5, 5)));
-            yield return new WaitForSeconds(Random.Range(5, 7));
-
-        }
+        var pos = _character.GetCharacterData().Rig2D.position;
+        pos.x += Random.Range(-5, 5);
+        pos.y = 0;
+        _character.GetEntityComponent<Walker>().SetTarget(pos, Move);
     }
 }

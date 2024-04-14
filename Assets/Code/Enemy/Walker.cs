@@ -19,7 +19,6 @@ public class Walker : IEntityComponent, IEntityComponentUpdate, IEntityComponent
     private Character _character;
     private Coroutine _moveCoroutine;
     private System.Action _onCompletMove;
-    private ChracterAnimator _animator;
     private bool _isMoving;
 
     public virtual void Init(Character character)
@@ -27,7 +26,6 @@ public class Walker : IEntityComponent, IEntityComponentUpdate, IEntityComponent
         _character = character;
         _transf = character.transform;
         _target = character.transform.position;
-        _animator = character.GetAnimator();
         _currentSpeed = 0;
         _rigidbody2d = character.GetCharacterData().Rig2D;
     }
@@ -39,8 +37,9 @@ public class Walker : IEntityComponent, IEntityComponentUpdate, IEntityComponent
 
         if (!_isMoving) return;
 
-        _character.transform.position = CurrentPosition + (_target - CurrentPosition).normalized * _speed * CurrentSpeed * Time.deltaTime;
-        _animator.PlayWalk();
+        _target.y = CurrentPosition.y;
+        _rigidbody2d.position = CurrentPosition + (_target - CurrentPosition).normalized * _speed * CurrentSpeed * Time.deltaTime;
+        //_animator.PlayWalk();
 
         if ((CurrentPosition - _target).sqrMagnitude < 0.01f)
         {
@@ -76,7 +75,7 @@ public class Walker : IEntityComponent, IEntityComponentUpdate, IEntityComponent
     private IEnumerator StopMove()
     {
         var t = 0f;
-        _animator.PlayIdle();
+        //_animator.PlayIdle();
         while (t <= 1f)
         {
             t += Time.deltaTime;

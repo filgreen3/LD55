@@ -19,7 +19,9 @@ public class Health : IEntityComponent
             if (value == _health) return;
 
             if (value <= 0 && _health > 0)
+            {
                 OnDeath?.Invoke();
+            }
             _health = Mathf.Clamp(value, 0, _maxHealth);
             OnDamage?.Invoke(_health);
         }
@@ -33,3 +35,39 @@ public class Health : IEntityComponent
     }
 }
 
+
+public class BloodStainDeath : IEntityComponentInit
+{
+    private Character _character;
+
+    public void Init(Character character)
+    {
+        _character = character;
+        _character.GetHealth().OnDeath += CreateBloodStain;
+    }
+
+    public void CreateBloodStain()
+    {
+        var bloodStain = Resources.Load<GameObject>("Fx/BloodStain");
+        var pos = _character.GetCharacterData().Rig2D.position;
+        pos.y = 0;
+        bloodStain = GameObject.Instantiate(bloodStain, pos, Quaternion.identity);
+    }
+}
+
+
+public class DestroyOnDeath : IEntityComponentInit
+{
+    private Character _character;
+
+    public void Init(Character character)
+    {
+        _character = character;
+        _character.GetHealth().OnDeath += DestroyCharacter;
+    }
+
+    public void DestroyCharacter()
+    {
+        GameObject.Destroy(_character.gameObject);
+    }
+}

@@ -208,6 +208,8 @@ public class EntityCustomInspector : Editor
         _typeID = 0;
         _assemblyID = 0;
         TargetEntity.AddEntityComponent(type);
+        serializedObject.ApplyModifiedProperties();
+        EditorUtility.SetDirty(TargetEntity);
     }
 
 
