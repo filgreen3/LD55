@@ -15,8 +15,15 @@ public class TownSystem : MonoBehaviour, ISystem
     public Action OnTownEnd;
 
     private TownGenerator _currentTownGenerator;
+    private static TownSystem _instance;
 
     public static bool IsBattle;
+    public static int AllWaves => _instance._townGenerators.Length;
+
+    private void Awake()
+    {
+        _instance = this;
+    }
 
     private void Start()
     {
@@ -26,8 +33,9 @@ public class TownSystem : MonoBehaviour, ISystem
     private void GenerateRandomTown()
     {
         _organBuilder.CanBuild = false;
-        GenerateTown(_townGenerators[UnityEngine.Random.Range(0, _townGenerators.Length)]);
+        GenerateTown(_townGenerators[Mathf.Clamp(WaveSystem.CurrentWave, 0, AllWaves - 1)]);
         OnTownStart?.Invoke();
+        _buttonToStart.gameObject.SetActive(false);
     }
 
     public void GenerateTown(TownGenerator generator)
@@ -66,6 +74,7 @@ public class TownSystem : MonoBehaviour, ISystem
         MoveMonster(Vector3.zero);
         Clean();
         _organBuilder.CanBuild = true;
+        _buttonToStart.gameObject.SetActive(true);
     }
 
     public void MoveMonster(Vector3 pos)

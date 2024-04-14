@@ -5423,8 +5423,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 0.9166667
-    height: 2.8333335
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -11675,6 +11675,14 @@ MonoBehaviour:
   _organBuilder: {fileID: 750286807}
   _townGenerators:
   - {fileID: 4200923618899322360, guid: c11719dc22c6247a68f7358b51861fbe, type: 3}
+  - {fileID: 4200923618899322360, guid: cbc1668c1ef024d0d8f2bcac0f105984, type: 3}
+  - {fileID: 4200923618899322360, guid: fd2e092c844744961bff29df36b0e770, type: 3}
+  - {fileID: 4200923618899322360, guid: 8483f4d2a9cc545429ac1fbe82aff3ae, type: 3}
+  - {fileID: 4200923618899322360, guid: b5a19a9b5e3d84a4cb3f03b21e2382d5, type: 3}
+  - {fileID: 4200923618899322360, guid: 4dae379c6b9c54745800a4c5c23e10fc, type: 3}
+  - {fileID: 4200923618899322360, guid: 7151f8b109e1c4fe4871dcdfeda9a43f, type: 3}
+  - {fileID: 4200923618899322360, guid: 81af1a43f6ba743a8ac7733b73cce4e7, type: 3}
+  - {fileID: 4200923618899322360, guid: b30b9dc05078e49df972810c3abb0f7f, type: 3}
 --- !u!1 &1755882373
 GameObject:
   m_ObjectHideFlags: 0
@@ -12263,6 +12271,22 @@ PrefabInstance:
     - target: {fileID: 487879230152174871, guid: 2d1c10789b8a242cc92c44e99ee1f063, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598009746424921174, guid: 2d1c10789b8a242cc92c44e99ee1f063, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.0627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598009746424921174, guid: 2d1c10789b8a242cc92c44e99ee1f063, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.0627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598009746424921174, guid: 2d1c10789b8a242cc92c44e99ee1f063, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.0627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598009746424921174, guid: 2d1c10789b8a242cc92c44e99ee1f063, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4279242768
       objectReference: {fileID: 0}
     - target: {fileID: 2601441706245959021, guid: 2d1c10789b8a242cc92c44e99ee1f063, type: 3}
       propertyPath: m_Camera

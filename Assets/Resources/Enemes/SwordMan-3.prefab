@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6264605531599045538
+--- !u!1 &8409106559630408473
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3065675052239862827}
-  - component: {fileID: 8205731254410798356}
-  - component: {fileID: 7798558087349246731}
-  - component: {fileID: 8741143630108806313}
-  - component: {fileID: 1662297273061216442}
+  - component: {fileID: 9151431972096278006}
+  - component: {fileID: 541321121858354923}
+  - component: {fileID: 4999950495931870699}
+  - component: {fileID: 3086880457553592828}
+  - component: {fileID: 1012499671914711753}
   m_Layer: 9
-  m_Name: Simple
+  m_Name: SwordMan-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3065675052239862827
+--- !u!4 &9151431972096278006
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6264605531599045538}
+  m_GameObject: {fileID: 8409106559630408473}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 54.895382, y: 13.202592, z: 0}
+  m_LocalPosition: {x: -5.47, y: 2.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8205731254410798356
+--- !u!114 &541321121858354923
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6264605531599045538}
+  m_GameObject: {fileID: 8409106559630408473}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36d57b19d03854e208806760daf440c2, type: 3}
@@ -52,9 +52,11 @@ MonoBehaviour:
   - rid: 1929229795126673435
   - rid: 1929229795126673437
   - rid: 1929229812426604544
-  - rid: 1929229812426604546
   - rid: 1929229812426604550
   - rid: 1929229812426604551
+  - rid: 1929229812426604552
+  - rid: 1929229812426604554
+  - rid: 1929229812426604555
   references:
     version: 2
     RefIds:
@@ -66,10 +68,10 @@ MonoBehaviour:
     - rid: 1929229795126673436
       type: {class: CharacterData, ns: , asm: Assembly-CSharp}
       data:
-        Name: Simple
-        Rig2D: {fileID: 8741143630108806313}
-        Coll2D: {fileID: 1662297273061216442}
-        SpriteRenderer: {fileID: 7798558087349246731}
+        Name: SwordMan
+        Rig2D: {fileID: 3086880457553592828}
+        Coll2D: {fileID: 1012499671914711753}
+        SpriteRenderer: {fileID: 4999950495931870699}
     - rid: 1929229795126673437
       type: {class: DamageDisplay, ns: , asm: Assembly-CSharp}
       data: 
@@ -79,22 +81,31 @@ MonoBehaviour:
         _speed: 3
         _wavingSpeed: 10
         _wavingAmplitude: 20
-    - rid: 1929229812426604546
-      type: {class: RandomWalker, ns: , asm: Assembly-CSharp}
-      data: 
     - rid: 1929229812426604550
       type: {class: BloodStainDeath, ns: , asm: Assembly-CSharp}
       data: 
     - rid: 1929229812426604551
       type: {class: DestroyOnDeath, ns: , asm: Assembly-CSharp}
       data: 
---- !u!212 &7798558087349246731
+    - rid: 1929229812426604552
+      type: {class: CenterTarget, ns: , asm: Assembly-CSharp}
+      data:
+        Center: {x: 0, y: 0, z: 0}
+    - rid: 1929229812426604554
+      type: {class: AttackComponent, ns: , asm: Assembly-CSharp}
+      data:
+        _damage: 1
+        _waitAfterAttack: 1
+    - rid: 1929229812426604555
+      type: {class: SwordmanWalkerTargeter, ns: , asm: Assembly-CSharp}
+      data: 
+--- !u!212 &4999950495931870699
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6264605531599045538}
+  m_GameObject: {fileID: 8409106559630408473}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -129,7 +140,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1876154432, guid: 6337bbfd291f94e959a4142ed4136674, type: 3}
+  m_Sprite: {fileID: -1856628922, guid: 6337bbfd291f94e959a4142ed4136674, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -140,14 +151,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &8741143630108806313
+--- !u!50 &3086880457553592828
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6264605531599045538}
+  m_GameObject: {fileID: 8409106559630408473}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -167,13 +178,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1662297273061216442
+--- !u!61 &1012499671914711753
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6264605531599045538}
+  m_GameObject: {fileID: 8409106559630408473}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}

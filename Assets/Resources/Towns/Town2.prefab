@@ -66,8 +66,9 @@ MonoBehaviour:
       type: {class: TownEnemes, ns: , asm: Assembly-CSharp}
       data:
         _characters:
-        - {fileID: 541321121858354923, guid: f370a7de186994fa88bff9a7b50eac70, type: 3}
+        - {fileID: 8205731254410798356, guid: 0a3d370d7f24a45d18d8944593b35eb7, type: 3}
         - {fileID: 541321121858354923, guid: 6e0de3334383d4026ae233b646970d1d, type: 3}
+        - {fileID: 8205731254410798356, guid: 0a3d370d7f24a45d18d8944593b35eb7, type: 3}
         CreatedCharacters: []
         EnemyCount: 6
     - rid: 1929229823494848514

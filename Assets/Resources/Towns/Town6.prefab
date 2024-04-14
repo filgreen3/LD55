@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3605401137344273985}
   - component: {fileID: 4200923618899322360}
   m_Layer: 0
-  m_Name: Town1
+  m_Name: Town6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,9 +66,10 @@ MonoBehaviour:
       type: {class: TownEnemes, ns: , asm: Assembly-CSharp}
       data:
         _characters:
-        - {fileID: 8205731254410798356, guid: 0a3d370d7f24a45d18d8944593b35eb7, type: 3}
+        - {fileID: 541321121858354923, guid: 299fb73b35abc4854bbf8edd77856179, type: 3}
+        - {fileID: 541321121858354923, guid: a7c9c10bd18e34302b0628363b67f1a5, type: 3}
         CreatedCharacters: []
-        EnemyCount: 4
+        EnemyCount: 5
     - rid: 1929229823494848514
       type: {class: TownWall, ns: , asm: Assembly-CSharp}
       data:

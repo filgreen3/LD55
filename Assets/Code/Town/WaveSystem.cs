@@ -23,11 +23,15 @@ public class WaveSystem : MonoBehaviour, ISystem
     private void Awake()
     {
         _instance = this;
+    }
+
+    private void Start()
+    {
         UpdateText();
     }
 
     private void UpdateText()
     {
-        _waveText.text = $"{CurrentWave}/10 Wave";
+        _waveText.text = $"{CurrentWave}/{TownSystem.AllWaves} Wave";
     }
 }

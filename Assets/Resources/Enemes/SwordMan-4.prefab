@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3086880457553592828}
   - component: {fileID: 1012499671914711753}
   m_Layer: 9
-  m_Name: Fly
+  m_Name: SwordMan-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,8 +55,8 @@ MonoBehaviour:
   - rid: 1929229812426604550
   - rid: 1929229812426604551
   - rid: 1929229812426604552
-  - rid: 1929229823494848515
-  - rid: 1929229823494848516
+  - rid: 1929229812426604554
+  - rid: 1929229812426604555
   references:
     version: 2
     RefIds:
@@ -68,7 +68,7 @@ MonoBehaviour:
     - rid: 1929229795126673436
       type: {class: CharacterData, ns: , asm: Assembly-CSharp}
       data:
-        Name: ArcherMan
+        Name: SwordMan
         Rig2D: {fileID: 3086880457553592828}
         Coll2D: {fileID: 1012499671914711753}
         SpriteRenderer: {fileID: 4999950495931870699}
@@ -91,14 +91,13 @@ MonoBehaviour:
       type: {class: CenterTarget, ns: , asm: Assembly-CSharp}
       data:
         Center: {x: 0, y: 0, z: 0}
-    - rid: 1929229823494848515
-      type: {class: ArcherWalkerTargeter, ns: , asm: Assembly-CSharp}
+    - rid: 1929229812426604554
+      type: {class: AttackComponent, ns: , asm: Assembly-CSharp}
       data:
-        _distance: 10
-        _shootDelay: 1
         _damage: 1
-    - rid: 1929229823494848516
-      type: {class: Fly, ns: , asm: Assembly-CSharp}
+        _waitAfterAttack: 1
+    - rid: 1929229812426604555
+      type: {class: SwordmanWalkerTargeter, ns: , asm: Assembly-CSharp}
       data: 
 --- !u!212 &4999950495931870699
 SpriteRenderer:
@@ -141,8 +140,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.8489032, a: 1}
+  m_Sprite: {fileID: -2055061676, guid: 6337bbfd291f94e959a4142ed4136674, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -211,16 +210,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.8125, y: 0.9375}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
