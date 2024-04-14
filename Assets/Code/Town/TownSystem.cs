@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System;
 
 public class TownSystem : MonoBehaviour, ISystem
 {
@@ -8,6 +9,9 @@ public class TownSystem : MonoBehaviour, ISystem
     [SerializeField] private Transform _cameraTartget;
     [SerializeField] private OrganBuilder _organBuilder;
     [SerializeField] private TownGenerator[] _townGenerators;
+
+    public Action OnTownStart;
+    public Action OnTownEnd;
 
     private TownGenerator _currentTownGenerator;
 
@@ -19,7 +23,8 @@ public class TownSystem : MonoBehaviour, ISystem
     private void GenerateRandomTown()
     {
         _organBuilder.CanBuild = false;
-        GenerateTown(_townGenerators[Random.Range(0, _townGenerators.Length)]);
+        GenerateTown(_townGenerators[UnityEngine.Random.Range(0, _townGenerators.Length)]);
+        OnTownStart?.Invoke();
     }
 
     public void GenerateTown(TownGenerator generator)
@@ -27,7 +32,7 @@ public class TownSystem : MonoBehaviour, ISystem
         if (_currentTownGenerator != null)
             Destroy(_currentTownGenerator.gameObject);
 
-        var pos = Vector3.right * Random.Range(10, 15);
+        var pos = Vector3.right * UnityEngine.Random.Range(10, 15);
         _currentTownGenerator = Instantiate(generator, pos, Quaternion.identity, transform);
         _currentTownGenerator.Generate(_currentTownGenerator);
         _cameraTartget.position = _currentTownGenerator.transform.position.x * Vector3.right;
@@ -48,6 +53,7 @@ public class TownSystem : MonoBehaviour, ISystem
         Clean();
         WaveSystem.CurrentWave++;
         _organBuilder.CanBuild = true;
+        OnTownEnd?.Invoke();
     }
     public void MoveMonster(Vector3 pos)
     {

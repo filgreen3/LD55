@@ -47,7 +47,6 @@ MonoBehaviour:
   _componentsList:
   - rid: 1929229795126673430
   - rid: 1929229795126673432
-  - rid: 1929229795126673433
   - rid: 1929229795126673438
   Size: 5
   references:
@@ -62,9 +61,6 @@ MonoBehaviour:
         _decorations:
         - {fileID: 8475449887294342826, guid: 81312ab1e5b034cc38573877a7767f43, type: 3}
         _count: 5
-    - rid: 1929229795126673433
-      type: {class: TownFakeWin, ns: , asm: Assembly-CSharp}
-      data: 
     - rid: 1929229795126673438
       type: {class: TownEnemes, ns: , asm: Assembly-CSharp}
       data:
