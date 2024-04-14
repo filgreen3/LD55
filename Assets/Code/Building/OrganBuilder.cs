@@ -12,6 +12,8 @@ public class OrganBuilder : MonoBehaviour, ISystem
 
     private static OrganBuilder _instance;
 
+    private OrganComponentRotationFlip _fliper;
+
     public bool CanBuild
     {
         get => _canBuild;
@@ -22,6 +24,7 @@ public class OrganBuilder : MonoBehaviour, ISystem
         get => _currentOrgan;
         set
         {
+
             if (!CanBuild) return;
             if (value != null && value.CanConnect == false)
             {
@@ -46,6 +49,7 @@ public class OrganBuilder : MonoBehaviour, ISystem
             _currentOrgan = value;
             if (_currentOrgan != null)
             {
+                _currentOrgan.TryGetEntityComponent<OrganComponentRotationFlip>(out _fliper);
                 _currentOrgan.PartCollider.isTrigger = true;
                 _colliderSize = ((BoxCollider2D)_currentOrgan.PartCollider).size;
                 ((BoxCollider2D)_currentOrgan.PartCollider).size *= c_colliderDownScale;
@@ -173,6 +177,18 @@ public class OrganBuilder : MonoBehaviour, ISystem
             return;
         }
         CurrentOrgan.Position = (Vector3)GetMousePosition() + Vector3.forward * 10;
+
+        if (_fliper != null)
+        {
+            if (CurrentOrgan.Position.x < -0.4 && _fliper.SidePositive)
+            {
+                _fliper.Rotate(CurrentOrgan);
+            }
+            else if (CurrentOrgan.Position.x > 0.4 && !_fliper.SidePositive)
+            {
+                _fliper.Rotate(CurrentOrgan);
+            }
+        }
 
 
         for (int i = 0; i < CurrentOrgan.AttachPoints.Length; i++)

@@ -13,6 +13,7 @@ public class OrganEmmiterDisplay : MonoBehaviour, ISystem
 
     private void OrganBuilder_OnStartBuildingOrgan(Organ organ)
     {
+        
         if (!organ.HasOrganComponent<IOrganComponentResourceReceiver>()) return;
 
         var neededResources = organ.GetOrganComponent<IOrganComponentResourceReceiver>().ResourceType;
