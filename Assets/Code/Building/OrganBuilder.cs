@@ -68,6 +68,7 @@ public class OrganBuilder : MonoBehaviour, ISystem
     public static Action<Organ> OnStartBuildingOrgan;
     public static Action<Organ> OnEndBuildingOrgan;
     public static List<Organ> ConnectedOrgans = new();
+    public static Action<Organ> OnOrganConnectedToMonster;
 
 
     public static void CallToBuild(Organ organ)
@@ -128,6 +129,7 @@ public class OrganBuilder : MonoBehaviour, ISystem
                 if (_targetParts[i] == null || _targetParts[i].CanConnect) continue;
                 CurrentOrgan.Connect(_targetParts[i]);
                 ConnectedOrgans.Add(CurrentOrgan);
+                OnOrganConnectedToMonster?.Invoke(CurrentOrgan);
                 connected = true;
             }
         }

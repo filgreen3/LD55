@@ -32,6 +32,7 @@ public class TownSystem : MonoBehaviour, ISystem
         _cameraTartget.position = _currentTownGenerator.transform.position.x * Vector3.right;
         _currentTownGenerator.OnTownLost += () => _cameraTartget.position = Vector3.zero;
         _currentTownGenerator.OnTownLost += () => Clean();
+        _currentTownGenerator.OnTownLost += () => WaveSystem.CurrentWave++;
 
         MoveMonster(_currentTownGenerator.transform.position);
     }

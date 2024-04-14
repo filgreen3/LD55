@@ -138,4 +138,5 @@ public static class OrganExtensions
     public static OrganRender GetRender(this Organ part) => part.GetEntityComponent<OrganRender>();
     public static OrganTireComponent GetTier(this Organ part) => part.GetEntityComponent<OrganTireComponent>();
     public static Transport GetTransport(this Organ part) => part.GetEntityComponent<Transport>();
+    public static OrganHealth GetHealth(this Organ part) => part.GetEntityComponent<OrganHealth>();
 }
