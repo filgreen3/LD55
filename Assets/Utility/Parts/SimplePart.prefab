@@ -50,6 +50,7 @@ MonoBehaviour:
   _componentsList:
   - rid: 1929229795126673408
   - rid: 1929229795126673409
+  - rid: 1929229812426604556
   AttachPoints:
   - {x: 1, y: 0}
   - {x: -1, y: 0}
@@ -73,6 +74,9 @@ MonoBehaviour:
       data:
         _value: 2
         _maxValue: 2
+    - rid: 1929229812426604556
+      type: {class: OrganDamageDisplay, ns: , asm: Assembly-CSharp}
+      data: 
 --- !u!212 &5771945001452381087
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -159,7 +163,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.125, y: 0.125, z: 0.125, w: 0.125}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}

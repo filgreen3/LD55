@@ -5499,7 +5499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2670966025152365340, guid: 38eab2a2d12d04127b59095f96551807, type: 3}
       propertyPath: _componentsList.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2670966025152365340, guid: 38eab2a2d12d04127b59095f96551807, type: 3}
       propertyPath: _componentsList.Array.data[1]
@@ -5518,12 +5518,32 @@ PrefabInstance:
       value: 1929229795126673412
       objectReference: {fileID: 0}
     - target: {fileID: 2670966025152365340, guid: 38eab2a2d12d04127b59095f96551807, type: 3}
+      propertyPath: _componentsList.Array.data[5]
+      value: 1929229812426604570
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670966025152365340, guid: 38eab2a2d12d04127b59095f96551807, type: 3}
+      propertyPath: managedReferences[1929229795126673409]
+      value: Assembly-CSharp OrganHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670966025152365340, guid: 38eab2a2d12d04127b59095f96551807, type: 3}
       propertyPath: managedReferences[1929229795126673412]
       value: Assembly-CSharp OrganComponentRotationFlip
       objectReference: {fileID: 0}
     - target: {fileID: 2670966025152365340, guid: 38eab2a2d12d04127b59095f96551807, type: 3}
       propertyPath: managedReferences[1929229795126673417]
       value: Assembly-CSharp BasicInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670966025152365340, guid: 38eab2a2d12d04127b59095f96551807, type: 3}
+      propertyPath: managedReferences[1929229812426604570]
+      value: Assembly-CSharp OrganDamageDisplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670966025152365340, guid: 38eab2a2d12d04127b59095f96551807, type: 3}
+      propertyPath: managedReferences[1929229795126673409]._value
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670966025152365340, guid: 38eab2a2d12d04127b59095f96551807, type: 3}
+      propertyPath: managedReferences[1929229795126673409]._maxValue
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3886545967022102127, guid: 38eab2a2d12d04127b59095f96551807, type: 3}
       propertyPath: m_LocalPosition.x

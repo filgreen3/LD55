@@ -12,6 +12,7 @@ public class OrganHealth : IOrganComponent, IOrganComponentInit
         set
         {
             _value = value;
+            OnDamage?.Invoke(this);
             if (IsDead)
                 OnDeath?.Invoke();
         }
@@ -21,6 +22,7 @@ public class OrganHealth : IOrganComponent, IOrganComponentInit
     public bool IsDead => Value <= 0;
     public bool IsFull => Value >= MaxValue;
 
+    public Action<OrganHealth> OnDamage;
     public Action OnDeath;
 
     public void Init(Organ part)
