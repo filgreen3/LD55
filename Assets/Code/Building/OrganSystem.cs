@@ -16,12 +16,18 @@ public class OrganSystem : MonoBehaviour, ISystem
     {
         WaveSystem.OnNewWave += (t) => UpdateLimitText();
         OrganBuilder.OnOrganConnectedToMonster += (t) => UpdateLimitText();
+        Organ.OrganDestroyedStatic += (t) => UpdateLimitText();
         UpdateLimitText();
     }
 
     public void UpdateLimitText()
     {
         _limitText.text = $"{CurrentOrgans}/{OrganLimit} Organs";
+    }
+
+    public static Organ LoadOrgan(string name)
+    {
+        return Instantiate(Resources.Load<Organ>($"Organs/{name}"));
     }
 
 }

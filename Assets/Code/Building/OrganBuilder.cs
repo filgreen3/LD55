@@ -19,7 +19,10 @@ public class OrganBuilder : MonoBehaviour, ISystem
         {
             if (value != null && value.CanConnect == false)
             {
-                return;
+                var nameOrgan = value.gameObject.name.Replace("(Clone)", "");
+                value.DisconnectAll();
+                Destroy(value.gameObject);
+                value = OrganSystem.LoadOrgan(nameOrgan);
             }
 
             if (_currentOrgan != null)
@@ -79,7 +82,7 @@ public class OrganBuilder : MonoBehaviour, ISystem
     private void Awake()
     {
         ConnectedOrgans.Clear();
-        Organ.OrganDestroyed += (t) => ConnectedOrgans.Remove(t);
+        Organ.OrganDestroyedStatic += (t) => ConnectedOrgans.Remove(t);
         GameControl.Instance.Control.Press1.started += ctx => Point();
         GameControl.Instance.Control.Press1.canceled += ctx => Release();
         GameControl.Instance.Control.Rotate.performed += ctx => Rotate();
@@ -97,6 +100,9 @@ public class OrganBuilder : MonoBehaviour, ISystem
 
     private void Point()
     {
+        ConnectedOrgans.RemoveAll(t => t == null);
+
+
         var obj = Physics2D.OverlapPoint(GetMousePosition(), LayerMask.GetMask("Part"));
         if (obj && obj.TryGetComponent<Organ>(out var part))
         {
@@ -128,13 +134,19 @@ public class OrganBuilder : MonoBehaviour, ISystem
             {
                 if (_targetParts[i] == null || _targetParts[i].CanConnect) continue;
                 CurrentOrgan.Connect(_targetParts[i]);
-                ConnectedOrgans.Add(CurrentOrgan);
-                OnOrganConnectedToMonster?.Invoke(CurrentOrgan);
                 connected = true;
             }
         }
-        if (!connected) Destroy(CurrentOrgan.gameObject);
+        if (!connected)
+        {
+            Destroy(CurrentOrgan.gameObject);
+        }
+        else
+        {
+            ConnectedOrgans.Add(CurrentOrgan);
+        }
         CurrentOrgan = null;
+        OnOrganConnectedToMonster?.Invoke(CurrentOrgan);
     }
 
     private void Update()

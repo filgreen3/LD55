@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Transport : IOrganComponent, IOrganComponentUpdate
+public class Transport : IOrganComponent, IOrganComponentUpdate, IOrganComponentInit
 {
     private List<Connection> _connections = new();
 
     public Connection MakeConnection(Organ self, Organ target)
     {
-        var connection = new Connection(LineHelperSystem.GetLine(), self, target);
+        var connection = new Connection(self, target);
         _connections.Add(connection);
         return connection;
     }
@@ -24,19 +24,40 @@ public class Transport : IOrganComponent, IOrganComponentUpdate
         _connections.RemoveAll(x => x.CheckData(target));
     }
 
+    public void RemoveAll()
+    {
+        for (int i = 0; i < _connections.Count; i++)
+        {
+            _connections[i].Drop();
+        }
+        _connections.Clear();
+    }
+
+    public void Init(Organ part)
+    {
+        part.OnOrganDestroyed += (t) => RemoveAll();
+    }
+
     public void Update()
     {
-        foreach (var connection in _connections)
+        for (int i = 0; i < _connections.Count; i++)
         {
-            connection.Update();
+            if (_connections[i] == null || !_connections[i].NotNull)
+            {
+                _connections[i].Drop();
+                _connections.RemoveAt(i);
+                i--;
+                continue;
+            }
+            _connections[i].Update();
         }
     }
 
     public class Connection
     {
-        public Connection(LineRenderer line, Organ self, Organ target)
+        public Connection(Organ self, Organ target)
         {
-            _line = line;
+            _line = LineHelperSystem.GetLine();
             _self = self;
             _target = target;
         }
@@ -46,6 +67,8 @@ public class Transport : IOrganComponent, IOrganComponentUpdate
         private LineRenderer _line;
         private Organ _self;
         private Organ _target;
+
+        public bool NotNull => _self != null && _target != null;
 
         private List<TransportParticle> _particles = new();
 
@@ -57,7 +80,7 @@ public class Transport : IOrganComponent, IOrganComponentUpdate
             foreach (var particle in _particles)
             {
                 particle.PathValue += Time.deltaTime;
-                particle.Particle.position = Vector3.Lerp(_self.Position, _target.Position, particle.PathValue);
+                particle.ParticleTransf.position = Vector3.Lerp(_self.Position, _target.Position, particle.PathValue);
                 if (particle.PathValue >= 1)
                 {
                     particle.OnParticleFinishTarget?.Invoke(_target);
@@ -66,11 +89,20 @@ public class Transport : IOrganComponent, IOrganComponentUpdate
             _particles.RemoveAll(x => x.PathValue >= 1);
         }
 
+        public void Drop()
+        {
+            LineHelperSystem.ReleaseLine(_line);
+            foreach (var particle in _particles)
+            {
+                ResourceParticleHelperSystem.ReleaseParticle(particle.Particle);
+            }
+        }
+
         public void PutResource(OrganResources resources, Action<Organ> OnParticleFinishTarget)
         {
             var particleRender = ResourceParticleHelperSystem.GetParticle(resources);
             OnParticleFinishTarget += (t) => ResourceParticleHelperSystem.ReleaseParticle(particleRender);
-            var particle = new TransportParticle(OnParticleFinishTarget, particleRender.transform);
+            var particle = new TransportParticle(OnParticleFinishTarget, particleRender);
             particleRender.transform.position = _self.Position;
             _particles.Add(particle);
         }
@@ -78,13 +110,16 @@ public class Transport : IOrganComponent, IOrganComponentUpdate
         public class TransportParticle
         {
             public Action<Organ> OnParticleFinishTarget;
-            public Transform Particle;
+            public Transform ParticleTransf;
+            public SpriteRenderer Particle;
             public float PathValue = 0;
 
-            public TransportParticle(Action<Organ> onParticleFinishTarget, Transform particle)
+            public TransportParticle(Action<Organ> onParticleFinishTarget, SpriteRenderer particle)
             {
                 OnParticleFinishTarget = onParticleFinishTarget;
                 Particle = particle;
+                ParticleTransf = particle.transform;
+
             }
         }
     }

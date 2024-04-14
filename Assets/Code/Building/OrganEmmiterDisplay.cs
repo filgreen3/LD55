@@ -20,6 +20,7 @@ public class OrganEmmiterDisplay : MonoBehaviour, ISystem
 
         foreach (var item in OrganBuilder.ConnectedOrgans)
         {
+            if (item == null) continue;
             emiter = item.GetOrganComponent<IOrganComponentResourceEmmiter>();
             if (emiter != null && emiter.ResourceType == neededResources)
             {
