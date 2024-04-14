@@ -50,11 +50,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 638098448143874177, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: m_Name
-      value: Heart
+      value: veins
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
+      propertyPath: managedReferences[-2]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: _componentsList.Array.size
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: _componentsList.Array.data[2]
@@ -62,31 +66,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: _componentsList.Array.data[3]
-      value: 1929229795126673422
+      value: 1929229795126673426
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: _componentsList.Array.data[4]
-      value: 1929229795126673425
+      value: 1929229795126673423
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
+      propertyPath: _componentsList.Array.data[5]
+      value: 1929229795126673427
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
+      propertyPath: _componentsList.Array.data[6]
+      value: 1929229795126673429
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: managedReferences[1929229795126673411]
       value: Assembly-CSharp OrganTireComponent
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
-      propertyPath: managedReferences[1929229795126673412]
-      value: Assembly-CSharp OrganComponentRotationFlip
+      propertyPath: managedReferences[1929229795126673413]
+      value: Assembly-CSharp OrganComponentRotationAxisZ
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
-      propertyPath: managedReferences[1929229795126673422]
+      propertyPath: managedReferences[1929229795126673423]
       value: Assembly-CSharp BasicInfo
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
-      propertyPath: managedReferences[1929229795126673425]
-      value: Assembly-CSharp BloodReciver
+      propertyPath: managedReferences[1929229795126673426]
+      value: Assembly-CSharp Transport
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
+      propertyPath: managedReferences[1929229795126673427]
+      value: Assembly-CSharp BloodEmitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
+      propertyPath: managedReferences[1929229795126673429]
+      value: Assembly-CSharp TimeEmitersTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: managedReferences[1929229795126673411]._tire
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: managedReferences[1929229795126673409]._value
@@ -97,8 +117,12 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
-      propertyPath: managedReferences[1929229795126673425]._maxResources
+      propertyPath: managedReferences[1929229795126673427]._emitRate
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688402634206530579, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
+      propertyPath: managedReferences[1929229795126673429]._emitRate
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4860111019266863890, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: m_Mass
@@ -111,10 +135,10 @@ PrefabInstance:
     - target: {fileID: 5771945001452381087, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1620261516, guid: 1e6eefff5c0ae4694b0d06abd6c896da, type: 3}
+      objectReference: {fileID: 380776180, guid: 1e6eefff5c0ae4694b0d06abd6c896da, type: 3}
     - target: {fileID: 7705128092727194904, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.125
+      value: 1.0416666
       objectReference: {fileID: 0}
     - target: {fileID: 7705128092727194904, guid: 99d5612da32f949d1923c20d395d2d03, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
