@@ -34,7 +34,7 @@ public class OrganBloodShooter : BloodReciver, IOrganComponentInit
         projectile.SetColor(Color.red);
         var dir = ((enemy.transform.position + Vector3.up * 0.5f) - _transf.position).normalized;
         projectile.Launch(dir, 15);
-
+        AudioHelper.PlayClip(ClipStorage.Instance._fire, 0.1f);
     }
 }
 

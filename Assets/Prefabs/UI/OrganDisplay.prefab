@@ -243,6 +243,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _organIcon: {fileID: 4437581935074079309}
   _organLockIcon: {fileID: 185648963147323516}
+  _clipOn: {fileID: 8300000, guid: 79f5ae31833cb4af5b15726b5b70b106, type: 3}
+  _clipOff: {fileID: 8300000, guid: 46cf396c0ab8e4847842e75096544425, type: 3}
 --- !u!1 &5608313875193114814
 GameObject:
   m_ObjectHideFlags: 0

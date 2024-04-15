@@ -25,6 +25,7 @@ public class LoseSystem : MonoBehaviour, ISystem
     public void Show()
     {
         if (this == null) return;
+        AudioHelper.PlayClip(ClipStorage.Instance._lose, 0.1f);
         _loseScreenGroup.alpha = 0;
         _loseScreenGroup.blocksRaycasts = true;
         _loseScreenGroup.interactable = true;

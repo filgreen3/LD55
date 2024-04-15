@@ -33,6 +33,7 @@ public class SwordmanWalkerTargeter : IEntityComponentInit
             if (CheckOrgan(out Organ organ))
             {
                 _character.GetEntityComponent<AttackComponent>().DamageOrgan(organ);
+                AudioHelper.PlayClip(ClipStorage.Instance._hit, 0.1f);
                 yield return new WaitForSeconds(3f);
             }
         }

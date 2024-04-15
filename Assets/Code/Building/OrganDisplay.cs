@@ -7,6 +7,9 @@ public class OrganDisplay : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
     [SerializeField] private Image _organIcon;
     [SerializeField] private GameObject _organLockIcon;
 
+    [SerializeField] private AudioClip _clipOn;
+    [SerializeField] private AudioClip _clipOff;
+
     public Organ CurrentOrgan { get; set; }
 
     public void LoadOrgan(Organ organ)
@@ -33,8 +36,10 @@ public class OrganDisplay : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
         if (OrganSystem.IsFull)
         {
             OrganSystem.TriggerLimit();
+            AudioHelper.PlayClip(_clipOff, 0.1f);
             return;
         }
+        AudioHelper.PlayClip(_clipOn, 0.1f);
         OrganBuilder.CallToBuild(Instantiate(CurrentOrgan, Vector3.down * 1000f, Quaternion.identity));
     }
 

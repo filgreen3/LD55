@@ -47,6 +47,7 @@ public class ArcherWalkerTargeter : IEntityComponentInit
         projectile.SetColor(Color.magenta);
         var dir = (target.Rig.position - (_character.GetCharacterData().Rig2D.position + Vector2.up * 0.5f)).normalized;
         projectile.Launch(dir, 15);
+        AudioHelper.PlayClip(ClipStorage.Instance._fire, 0.1f);
 
     }
 

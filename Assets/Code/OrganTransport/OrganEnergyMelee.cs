@@ -31,13 +31,17 @@ public class OrganEnergyMelee : EnergyReciver, IOrganComponentInit
         if (_hitCoroutine == null)
             _hitCoroutine = _organ.StartCoroutine(Animate());
 
+        var play = false;
         foreach (var item in list)
         {
             if (item.TryGetComponent(out Character character))
             {
+                play = true;
                 character.GetHealth().HealthPoints -= _damage;
             }
         }
+        if (play)
+            AudioHelper.PlayClip(ClipStorage.Instance._hit2, 0.1f);
     }
 
     private IEnumerator Animate()

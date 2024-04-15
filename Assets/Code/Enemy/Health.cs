@@ -57,6 +57,7 @@ public class BloodStainDeath : IEntityComponentInit
         var pos = _character.GetCharacterData().Rig2D.position;
         pos.y = 0;
         bloodStain = GameObject.Instantiate(bloodStain, pos, Quaternion.identity);
+        AudioHelper.PlayClip(ClipStorage.Instance._kill, 0.1f);
     }
 }
 

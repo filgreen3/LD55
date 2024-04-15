@@ -173,6 +173,7 @@ public class OrganBuilder : MonoBehaviour, ISystem
         else
         {
             ConnectedOrgans.Add(CurrentOrgan);
+            AudioHelper.PlayClip(ClipStorage.Instance._connect, 0.1f);
         }
         CurrentOrgan = null;
         OnOrganConnectedToMonster?.Invoke(CurrentOrgan);

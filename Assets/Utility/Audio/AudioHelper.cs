@@ -25,7 +25,7 @@ public class AudioHelper : MonoBehaviour, ISystem
             audio.transform.SetParent(transform);
             audio.playOnAwake = false;
             audio.loop = false;
-            audio.spatialBlend = 0.89f;
+            //audio.spatialBlend = 0.89f;
             audio.outputAudioMixerGroup = Resources.Load<AudioMixerGroup>("Mixers/Main");
             return audio;
         },
@@ -36,12 +36,11 @@ public class AudioHelper : MonoBehaviour, ISystem
         maxSize: 100);
     }
 
-    public static void PlayClip(Vector3 pos, AudioClip clip, float pitchSpread = 0, float customPitch = 1)
+    public static void PlayClip(AudioClip clip, float pitchSpread = 0, float customPitch = 1)
     {
         if (clip == null) return;
         var audio = _instance._pool.Get();
         audio.pitch = Random.Range(customPitch - pitchSpread, customPitch + pitchSpread);
-        audio.transform.position = pos;
         _instance.StartCoroutine(_instance.PlayClip(audio, clip));
     }
 

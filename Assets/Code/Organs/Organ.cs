@@ -88,6 +88,7 @@ public class Organ : Connectable
         ConnectedParts.Clear();
         PartCollider.enabled = false;
         OnDisconnect?.Invoke(this);
+        AudioHelper.PlayClip(ClipStorage.Instance._hit, 0.1f);
     }
 
     private void FixedUpdate()

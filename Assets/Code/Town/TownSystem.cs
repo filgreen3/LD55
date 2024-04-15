@@ -37,6 +37,7 @@ public class TownSystem : MonoBehaviour, ISystem
     private void GenerateRandomTown()
     {
         _organBuilder.CanBuild = false;
+        AudioHelper.PlayClip(ClipStorage.Instance._summon, 0.1f);
         if (WinSystem.ReadyToWin)
         {
             GenerateTown(_kingTown);
@@ -74,6 +75,7 @@ public class TownSystem : MonoBehaviour, ISystem
 
     public void TownLost()
     {
+        AudioHelper.PlayClip(ClipStorage.Instance._win, 0.1f);
         StartCoroutine(Win());
     }
 
