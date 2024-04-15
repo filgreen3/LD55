@@ -40,14 +40,14 @@ public class SwordmanWalkerTargeter : IEntityComponentInit
 
     private bool CheckOrgan()
     {
-        _collider = Physics2D.OverlapPoint(CharacterPosition + MoveDirection * 0.5f, LayerMask.GetMask("Part"));
+        _collider = Physics2D.OverlapCircle(CharacterPosition + MoveDirection * 0.5f, 0.6f, LayerMask.GetMask("Part"));
         if (_collider == null) { return false; }
         return _collider.GetComponent<Organ>();
     }
 
     private bool CheckOrgan(out Organ organ)
     {
-        _collider = Physics2D.OverlapPoint(CharacterPosition + MoveDirection * 0.5f, LayerMask.GetMask("Part"));
+        _collider = Physics2D.OverlapCircle(CharacterPosition + MoveDirection * 0.5f, 0.6f, LayerMask.GetMask("Part"));
         if (_collider == null) { organ = null; return false; }
         return _collider.TryGetComponent<Organ>(out organ);
     }

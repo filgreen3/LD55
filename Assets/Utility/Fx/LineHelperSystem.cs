@@ -1,10 +1,29 @@
 using UnityEngine;
 using UnityEngine.Pool;
+using System;
 
 public class LineHelperSystem : MonoBehaviour, ISystem
 {
     private static LineHelperSystem _instance;
     private ObjectPool<LineRenderer> _poolLines;
+
+    private Action<float> OnAlphaChange;
+
+
+    public static void SetAlpha(float a)
+    {
+        _instance.OnAlphaChange?.Invoke(a);
+    }
+
+    public void SetLineAlpha(float a, LineRenderer line)
+    {
+        var scolor = line.startColor;
+        scolor.a = a;
+        line.startColor = scolor;
+        var ecolor = line.endColor;
+        ecolor.a = a;
+        line.endColor = ecolor;
+    }
 
     private void Awake()
     {
@@ -13,9 +32,10 @@ public class LineHelperSystem : MonoBehaviour, ISystem
         _poolLines = new ObjectPool<LineRenderer>(
         createFunc: () =>
         {
-            var noise = Instantiate(Resources.Load<LineRenderer>("Fx/Line"));
-            noise.transform.SetParent(transform);
-            return noise;
+            var line = Instantiate(Resources.Load<LineRenderer>("Fx/Line"));
+            OnAlphaChange += a => SetLineAlpha(a, line);
+            line.transform.SetParent(transform);
+            return line;
         },
         actionOnGet: line => line.gameObject.SetActive(true),
         actionOnRelease: line => line.gameObject.SetActive(false),

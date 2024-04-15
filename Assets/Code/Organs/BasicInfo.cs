@@ -3,16 +3,15 @@ using UnityEngine;
 public class BasicInfo : OrganComponentInfo, IOrganComponentInit
 {
     public override string Name => _name;
-    public override string Description => _organ ? $"<sprite=\"icon\" name=hp> {_organ.GetHealth().Value}x" + _description : _description;
+    public override string Description => _organ ? $"{_organ.GetHealth().Value}<sprite=\"icon\" name=hp>\n" + _description : _description;
 
+    [SerializeField] private Organ _organ;
 
-    private Organ _organ;
-    private string _name;
-    [TextArea] private string _description;
+    [SerializeField] private string _name;
+    [SerializeField, TextArea] private string _description;
 
     public void Init(Organ part)
     {
         _organ = part;
-        _name = part.gameObject.name.Replace("(Clone)", "");
     }
 }

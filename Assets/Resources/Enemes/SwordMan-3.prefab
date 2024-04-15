@@ -63,8 +63,8 @@ MonoBehaviour:
     - rid: 1929229795126673435
       type: {class: Health, ns: , asm: Assembly-CSharp}
       data:
-        _maxHealth: 9
-        _health: 9
+        _maxHealth: 5
+        _health: 5
     - rid: 1929229795126673436
       type: {class: CharacterData, ns: , asm: Assembly-CSharp}
       data:

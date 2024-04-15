@@ -14,6 +14,7 @@ public class OrganInfoDisplay : MonoBehaviour, ISystem
         get => _currentInfoOrgan;
         set
         {
+            if (_currentInfoOrgan == value) return;
             if (_currentInfoOrgan != null)
             {
                 CurrentInfoOrgan.GetRender().Renderer.SetOutline(false);

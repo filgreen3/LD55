@@ -46,6 +46,7 @@ public class TownSystem : MonoBehaviour, ISystem
             GenerateTown(_townGenerators[Mathf.Clamp(WaveSystem.CurrentWave, 0, AllWaves - 1)]);
         }
         OnTownStart?.Invoke();
+        ResourceParticleHelperSystem.Hide();
         _buttonToStart.gameObject.SetActive(false);
         _buildLock.SetActive(true);
     }
@@ -62,6 +63,7 @@ public class TownSystem : MonoBehaviour, ISystem
         _currentTownGenerator.OnTownLost += TownLost;
         MoveMonster(_currentTownGenerator.transform.position);
         IsBattle = true;
+        LineHelperSystem.SetAlpha(0);
     }
 
     public void Clean()
@@ -88,6 +90,8 @@ public class TownSystem : MonoBehaviour, ISystem
         _organBuilder.CanBuild = true;
         _buttonToStart.gameObject.SetActive(true);
         _buildLock.SetActive(false);
+        LineHelperSystem.SetAlpha(1);
+        ResourceParticleHelperSystem.Hide();
     }
 
     public void MoveMonster(Vector3 pos)

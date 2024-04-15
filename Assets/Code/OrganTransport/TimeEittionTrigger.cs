@@ -66,7 +66,6 @@ public class EmitersTriggerEnergy : EnergyReciver, IOrganComponentInit
     public void Init(Organ part)
     {
         _emiters = part.GetOrganComponents<IOrganComponentResourceEmmiter>();
-        Debug.Log(_emiters.Length);
     }
 
     public override void ReciveResource()
