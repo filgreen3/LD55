@@ -40,14 +40,14 @@ public class OrganDisplay : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (CurrentOrgan == null || !CurrentOrgan.GetTier().IsOpen) return;
+        if (CurrentOrgan == null) return;
         OrganInfoDisplay.SetInfo(CurrentOrgan);
 
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (CurrentOrgan == null || !CurrentOrgan.GetTier().IsOpen) return;
+        if (CurrentOrgan == null) return;
         OrganInfoDisplay.CleanInfo();
     }
 }

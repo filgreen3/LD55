@@ -144,6 +144,14 @@ public class OrganBuilder : MonoBehaviour, ISystem
         }
     }
 
+    public void Heal()
+    {
+        for (int i = 0; i < ConnectedOrgans.Count; i++)
+        {
+            ConnectedOrgans[i].GetHealth().Value = ConnectedOrgans[i].GetHealth().MaxValue;
+        }
+    }
+
     private void Release()
     {
         if (CurrentOrgan == null) return;

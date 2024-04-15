@@ -87,6 +87,7 @@ public class TownSystem : MonoBehaviour, ISystem
         _cameraTartget.position = Vector3.zero;
         MoveMonster(Vector3.zero);
         Clean();
+        _organBuilder.Heal();
         _organBuilder.CanBuild = true;
         _buttonToStart.gameObject.SetActive(true);
         _buildLock.SetActive(false);

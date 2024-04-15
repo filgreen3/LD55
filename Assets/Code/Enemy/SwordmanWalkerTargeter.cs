@@ -20,7 +20,7 @@ public class SwordmanWalkerTargeter : IEntityComponentInit
 
     private IEnumerator Behaviour()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         _pos = _character.GetEntityComponent<CenterTarget>().Center;
         Move();
 
@@ -33,7 +33,7 @@ public class SwordmanWalkerTargeter : IEntityComponentInit
             if (CheckOrgan(out Organ organ))
             {
                 _character.GetEntityComponent<AttackComponent>().DamageOrgan(organ);
-                yield return new WaitForSeconds(_character.GetEntityComponent<AttackComponent>().WaitAfterAttack);
+                yield return new WaitForSeconds(3f);
             }
         }
     }

@@ -28,12 +28,12 @@ public class ArcherWalkerTargeter : IEntityComponentInit
 
         while (true)
         {
-            yield return new WaitForSeconds(_shootDelay + Random.value);
             if (OrganBuilder.ConnectedOrgans.Count > 0)
             {
                 var target = OrganBuilder.ConnectedOrgans[Random.Range(0, OrganBuilder.ConnectedOrgans.Count)];
                 Shoot(target);
             }
+            yield return new WaitForSeconds(1f + _shootDelay + Random.value);
         }
     }
 
