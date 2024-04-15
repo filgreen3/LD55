@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21d6b343ca9f94efbb6fe0ce81db5804, type: 3}
   m_Name: FixedPattletPostProcessRenderer
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   _defShader: {fileID: 4800000, guid: dfa7955ed1c9b4a3191b48edca4380ed, type: 3}
 --- !u!114 &11400000
 MonoBehaviour:
