@@ -38,7 +38,13 @@ public class LineHelperSystem : MonoBehaviour, ISystem
             return line;
         },
         actionOnGet: line => line.gameObject.SetActive(true),
-        actionOnRelease: line => line.gameObject.SetActive(false),
+        actionOnRelease: line =>
+        {
+            if (line != null)
+            {
+                line.gameObject.SetActive(false);
+            }
+        },
         collectionCheck: false,
         defaultCapacity: 10,
         maxSize: 1000);

@@ -25,14 +25,18 @@ public class ResourceParticleHelperSystem : MonoBehaviour, ISystem
             return particle;
         },
         actionOnGet: particle => particle.gameObject.SetActive(true),
-        actionOnRelease: particle => particle.gameObject.SetActive(false),
+        actionOnRelease: particle =>
+        {
+            if (particle != null)
+                particle.gameObject.SetActive(false);
+        },
         collectionCheck: false,
         defaultCapacity: 10,
         actionOnDestroy: particle => Destroy(particle.gameObject),
         maxSize: 1000);
     }
 
-    public static void Hide() => _instance.OnHideAll.Invoke();
+    public static void Hide() => _instance.OnHideAll?.Invoke();
 
     public static SpriteRenderer GetParticle(OrganResources organResources)
     {

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Game.Input;
 using UnityEngine.SceneManagement;
 
 public class LoseSystem : MonoBehaviour, ISystem
@@ -14,6 +15,7 @@ public class LoseSystem : MonoBehaviour, ISystem
     {
         Time.timeScale = 1;
         BaseOrganComponent.AddAction(Subscribe);
+        GameControl.Instance.Control.Rotate.performed += ctx => Restart();
     }
 
     private void Subscribe(Organ organ)
@@ -38,6 +40,7 @@ public class LoseSystem : MonoBehaviour, ISystem
 
     public void Restart()
     {
+        GameControl.Instance.Control.Rotate.performed -= ctx => Restart();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

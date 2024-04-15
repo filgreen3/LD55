@@ -73,7 +73,7 @@ public class OrganBuilder : MonoBehaviour, ISystem
 
     private Organ _currentOrgan;
     private Vector2 _colliderSize;
-    private Organ[] _targetParts;
+    private Organ[] _targetParts = new Organ[0];
     private Collider2D[] _overlappingColliders = new Collider2D[3];
     private ContactFilter2D _contactFilter = new ContactFilter2D();
     private int _overlappingCollidersCount;
@@ -103,7 +103,6 @@ public class OrganBuilder : MonoBehaviour, ISystem
         Organ.OrganDestroyedStatic += (t) => ConnectedOrgans.Remove(t);
         GameControl.Instance.Control.Press1.started += ctx => Point();
         GameControl.Instance.Control.Press1.canceled += ctx => Release();
-        GameControl.Instance.Control.Rotate.performed += ctx => Rotate();
         _contactFilter.useTriggers = true;
         _instance = this;
 
@@ -113,9 +112,6 @@ public class OrganBuilder : MonoBehaviour, ISystem
     {
         GameControl.Instance.Control.Press1.started -= ctx => Point();
         GameControl.Instance.Control.Press1.canceled -= ctx => Release();
-        GameControl.Instance.Control.Rotate.performed -= ctx => Rotate();
-
-
         OnStartBuildingOrgan = null;
         OnEndBuildingOrgan = null;
         OnOrganConnectedToMonster = null;
