@@ -14,7 +14,7 @@ public class WaveSystem : MonoBehaviour, ISystem
     {
         get => _currentWave; set
         {
-            _currentWave = value;
+            _currentWave = Mathf.Clamp(value, 0, TownSystem.AllWaves);
             _instance.UpdateText();
             OnNewWave?.Invoke(_currentWave);
         }
