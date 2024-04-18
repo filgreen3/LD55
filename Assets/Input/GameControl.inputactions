@@ -1034,6 +1034,17 @@
                 },
                 {
                     "name": "",
+                    "id": "a00628b1-79d8-4160-8fd2-85faab2e9b32",
+                    "path": "<Pen>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Press1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "ac2b8b82-40fa-45e3-ab2e-432f9c1db7dd",
                     "path": "<Pointer>/position",
                     "interactions": "",
