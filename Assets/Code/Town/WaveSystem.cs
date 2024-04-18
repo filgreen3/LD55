@@ -6,7 +6,7 @@ public class WaveSystem : MonoBehaviour, ISystem
     [SerializeField] private TMPro.TMP_Text _waveText;
 
     private static WaveSystem _instance;
-    private static int _currentWave = 1;
+    private static int _currentWave = 0;
 
     public static Action<int> OnNewWave;
 
@@ -37,7 +37,7 @@ public class WaveSystem : MonoBehaviour, ISystem
 
     private void OnDisable()
     {
-        CurrentWave = 1;
+        CurrentWave = 0;
         OnNewWave = null;
     }
 }

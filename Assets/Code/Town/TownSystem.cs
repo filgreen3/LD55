@@ -9,7 +9,6 @@ public class TownSystem : MonoBehaviour, ISystem
     [SerializeField] private Button _buttonToStart;
     [SerializeField] private Transform _cameraTartget;
     [SerializeField] private OrganBuilder _organBuilder;
-    [SerializeField] private GameObject _buildLock;
     [SerializeField] private TownGenerator _kingTown;
     [SerializeField] private TownGenerator[] _townGenerators;
 
@@ -49,7 +48,7 @@ public class TownSystem : MonoBehaviour, ISystem
         OnTownStart?.Invoke();
         ResourceParticleHelperSystem.Hide();
         _buttonToStart.gameObject.SetActive(false);
-        _buildLock.SetActive(true);
+        HideOpenBuilder.Hide();
     }
 
     public void GenerateTown(TownGenerator generator)
@@ -87,12 +86,12 @@ public class TownSystem : MonoBehaviour, ISystem
         IsBattle = false;
         yield return new WaitForSeconds(1f);
         _cameraTartget.position = Vector3.zero;
-        MoveMonster(Vector3.zero);
+        MoveMonster(Vector3.right * -2);
         Clean();
         _organBuilder.Heal();
         _organBuilder.CanBuild = true;
         _buttonToStart.gameObject.SetActive(true);
-        _buildLock.SetActive(false);
+        HideOpenBuilder.Show();
         LineHelperSystem.SetAlpha(1);
         ResourceParticleHelperSystem.Hide();
     }

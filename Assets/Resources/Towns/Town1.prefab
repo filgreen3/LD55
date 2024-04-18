@@ -49,6 +49,7 @@ MonoBehaviour:
   - rid: 1929229795126673432
   - rid: 1929229795126673438
   - rid: 1929229823494848514
+  - rid: 1929229912678858752
   Size: 4.25
   references:
     version: 2
@@ -73,3 +74,9 @@ MonoBehaviour:
       type: {class: TownWall, ns: , asm: Assembly-CSharp}
       data:
         _wall: {fileID: 5387581072065496741, guid: 5cf52c3ee81a849f6a40f51e082b57bd, type: 3}
+    - rid: 1929229912678858752
+      type: {class: TownSimpleGenerator, ns: , asm: Assembly-CSharp}
+      data:
+        _characters:
+        - {fileID: 8205731254410798356, guid: 0a3d370d7f24a45d18d8944593b35eb7, type: 3}
+        SimpleCount: 7

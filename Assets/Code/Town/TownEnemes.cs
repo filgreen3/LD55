@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class TownEnemes : ITownComponent
 {
+    public const float c_offset = 2f;
+
     [SerializeField] private Character[] _characters;
     public List<Character> CreatedCharacters = new List<Character>();
     public int EnemyCount;
@@ -16,7 +18,8 @@ public class TownEnemes : ITownComponent
 
         for (int i = 0; i < EnemyCount; i++)
         {
-            var character = GameObject.Instantiate(_characters[Random.Range(0, _characters.Length)], generator.CenterPosition + Vector3.right * Random.Range(-generator.Size, generator.Size), Quaternion.identity, generator.transform);
+            var pos = Vector3.right * (generator.Size + Random.Range(0f, c_offset)) * Mathf.Sign(Random.value - 0.5f);
+            var character = GameObject.Instantiate(_characters[Random.Range(0, _characters.Length)], generator.CenterPosition + pos, Quaternion.identity, generator.transform);
             character.GetEntityComponent<Health>().OnDeath += () => population.Population--;
 
             CreatedCharacters.Add(character);
