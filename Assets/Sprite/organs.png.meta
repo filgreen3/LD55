@@ -488,7 +488,7 @@ TextureImporter:
         width: 21
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -509,7 +509,7 @@ TextureImporter:
         width: 9
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -517,6 +517,27 @@ TextureImporter:
       bones: []
       spriteID: 3d79bb6eb25694069b714cbe439be519
       internalID: -1294193051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pattern
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 4
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 694545ea1de564c2ea10b3a8a0dcfc6c
+      internalID: 2053344195
       vertices: []
       indices: 
       edges: []
@@ -548,6 +569,7 @@ TextureImporter:
       organs_0: 28513802
       organs_1: -106842934
       organs_2: -1294193051
+      pattern: 2053344195
       shell: 1510844090
       solar: -1145193347
       stomack: 1638204207

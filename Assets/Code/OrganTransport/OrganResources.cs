@@ -6,5 +6,7 @@ public enum OrganResources : int
     Hp,
     Man,
     Time,
-    TPlace
+    TPlace,
+    WNone
+
 }
