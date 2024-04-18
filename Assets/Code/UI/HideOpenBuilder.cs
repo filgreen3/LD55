@@ -12,6 +12,10 @@ public class HideOpenBuilder : InstanceSystem<HideOpenBuilder>, ISystem
     [SerializeField] private AnimationCurve _curve;
     [SerializeField] private float _speed;
 
+
+    private Coroutine _coroutine;
+    private float t;
+
     private void Amount(float value)
     {
         Instance._mainView.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, Mathf.LerpUnclamped(c_maxWidth, c_maxWidth - Instance._builderWidth, value));
@@ -21,7 +25,6 @@ public class HideOpenBuilder : InstanceSystem<HideOpenBuilder>, ISystem
 
     private IEnumerator ShowAnimation()
     {
-        var t = 0f;
         while (t < 1)
         {
             t += Time.deltaTime * _speed;
@@ -30,11 +33,11 @@ public class HideOpenBuilder : InstanceSystem<HideOpenBuilder>, ISystem
         }
         t = 1;
         Amount(t);
+        _coroutine = null;
     }
 
     private IEnumerator HideAnimation()
     {
-        var t = 1f;
         while (t > 0)
         {
             t -= Time.deltaTime * _speed;
@@ -43,15 +46,20 @@ public class HideOpenBuilder : InstanceSystem<HideOpenBuilder>, ISystem
         }
         t = 0;
         Amount(t);
+        _coroutine = null;
     }
 
     public static void Hide()
     {
-        Instance.StartCoroutine(Instance.HideAnimation());
+        if (Instance._coroutine != null)
+            Instance.StopCoroutine(Instance._coroutine);
+        Instance._coroutine = Instance.StartCoroutine(Instance.HideAnimation());
     }
 
     public static void Show()
     {
-        Instance.StartCoroutine(Instance.ShowAnimation());
+        if (Instance._coroutine != null)
+            Instance.StopCoroutine(Instance._coroutine);
+        Instance._coroutine = Instance.StartCoroutine(Instance.ShowAnimation());
     }
 }
