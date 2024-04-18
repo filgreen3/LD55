@@ -16,6 +16,7 @@ public class WinSystem : MonoBehaviour, ISystem
     private void Awake()
     {
         _instance = this;
+        ReadyToWin = false;
     }
 
     public static void Win()
@@ -38,6 +39,7 @@ public class WinSystem : MonoBehaviour, ISystem
 
     public void Restart()
     {
+        ReadyToWin = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

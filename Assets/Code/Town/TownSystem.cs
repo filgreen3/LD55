@@ -83,10 +83,16 @@ public class TownSystem : MonoBehaviour, ISystem
         OnTownEnd?.Invoke();
         WaveSystem.CurrentWave++;
         OrganTierSystem.UpdateTire();
-        IsBattle = false;
         yield return new WaitForSeconds(1f);
-        _cameraTartget.position = Vector3.zero;
-        MoveMonster(Vector3.right * -2);
+        Back();
+    }
+
+    public void Back()
+    {
+        OnTownEnd?.Invoke();
+        IsBattle = false;
+        _cameraTartget.position = Vector3.right * 2;
+        MoveMonster(Vector2.zero);
         Clean();
         _organBuilder.Heal();
         _organBuilder.CanBuild = true;
@@ -95,6 +101,8 @@ public class TownSystem : MonoBehaviour, ISystem
         LineHelperSystem.SetAlpha(1);
         ResourceParticleHelperSystem.Hide();
     }
+
+    public static void TownReset() => _instance.Back();
 
     public void MoveMonster(Vector3 pos)
     {

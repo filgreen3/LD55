@@ -1,21 +1,20 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using Game.Input;
 using UnityEngine.SceneManagement;
 
 public class LoseSystem : MonoBehaviour, ISystem
 {
     [SerializeField] private GameObject _loseScreen;
     [SerializeField] private CanvasGroup _loseScreenGroup;
-    [SerializeField] private Button _restartButton;
+    [SerializeField] private Button _loseButton;
     [SerializeField] private TMPro.TMP_Text _loseText;
+
 
     private void Start()
     {
         Time.timeScale = 1;
         BaseOrganComponent.AddAction(Subscribe);
-        GameControl.Instance.Control.Rotate.performed += ctx => Restart();
     }
 
     private void Subscribe(Organ organ)
@@ -31,16 +30,15 @@ public class LoseSystem : MonoBehaviour, ISystem
         _loseScreenGroup.alpha = 0;
         _loseScreenGroup.blocksRaycasts = true;
         _loseScreenGroup.interactable = true;
-        _restartButton.gameObject.SetActive(false);
+        _loseButton.gameObject.SetActive(false);
         _loseText.gameObject.SetActive(false);
-        _restartButton.onClick.AddListener(Restart);
+        _loseButton.onClick.AddListener(Lose);
         _loseScreen.SetActive(true);
         StartCoroutine(Animation());
     }
 
-    public void Restart()
+    public void Lose()
     {
-        GameControl.Instance.Control.Rotate.performed -= ctx => Restart();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -65,6 +63,6 @@ public class LoseSystem : MonoBehaviour, ISystem
             _loseText.text = text.Substring(0, i + 1);
             yield return new WaitForFixedUpdate();
         }
-        _restartButton.gameObject.SetActive(true);
+        _loseButton.gameObject.SetActive(true);
     }
 }
