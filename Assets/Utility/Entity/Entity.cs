@@ -12,8 +12,6 @@ public abstract class Entity : MonoBehaviour
     public abstract Type ComponentType { get; }
     public abstract IEnumerable Components { get; }
     public abstract bool AllowDuplication { get; }
-
-    public abstract System.Object GetComponentByIndex(int index);
 }
 
 public abstract class Entity<W> : Entity where W : class
@@ -24,7 +22,6 @@ public abstract class Entity<W> : Entity where W : class
     public override Type ComponentType => typeof(W);
     public override IEnumerable Components => _componentsList;
     public bool Init { get; private set; }
-    public override System.Object GetComponentByIndex(int index) => _componentsList[index];
 
     protected virtual void Awake()
     {

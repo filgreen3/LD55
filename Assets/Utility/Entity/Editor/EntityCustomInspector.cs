@@ -168,14 +168,8 @@ public class EntityCustomInspector : Editor
             EditorGUI.EndChangeCheck();
             return;
         }
-        var comp = _targetEntity.GetComponentByIndex(index);
-        if (comp == null)
-        {
-            EditorGUI.PropertyField(rect, component, new GUIContent("Null"), true);
-            return;
-        }
 
-        EditorGUI.PropertyField(rect, component, new GUIContent(comp.GetType().Name), true);
+        EditorGUI.PropertyField(rect, component, new GUIContent(component.managedReferenceValue.GetType().Name), true);
         if (EditorGUI.EndChangeCheck())
         {
             serializedObject.ApplyModifiedProperties();
